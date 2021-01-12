@@ -2,23 +2,24 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Nav from "./components/Nav/";
-import BooksSearch from "./components/BooksSearch/";
-import FavoriteBooks from "./components/Favoritebooks/";
+import HomePage from "./components/homePage/";
+import ProfilePage from "./components/Profilepage/";
+import AuthPage from "./components/Authpage/";
 
 class App extends Component {
   render() {
     return (
       <div>
         <Router>
-          <Nav />
           <Route exact path="/">
-            <BooksSearch />
+            <HomePage />
           </Route>
           <Route exact path="/profile">
-            <FavoriteBooks />
+            <ProfilePage />
           </Route>
-          <Route exact path="/authProfile"></Route>
+          <Route exact path="/authProfile">
+            <AuthPage />
+          </Route>
           <Route exact path="/test"></Route>
         </Router>
       </div>
