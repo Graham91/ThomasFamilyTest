@@ -6,8 +6,12 @@ import SelectUser from "../selectUser/";
 function HomePage(props) {
   return (
     <div>
-      <AuthLink />
-      <SelectUser />
+      <div>
+        <AuthLink />
+      </div>
+      <div>
+        <SelectUser />
+      </div>
     </div>
   );
 }

@@ -1,0 +1,7 @@
+.linkBox {
+  width: calc(100% - 80px);
+  margin: 40px auto;
+  border-radius: 20px;
+  border: solid black 4px;
+  padding: 20px;
+}
