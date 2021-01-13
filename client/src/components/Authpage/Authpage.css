@@ -1,0 +1,19 @@
+.managementHome {
+  width: 400px;
+  height: 100vh;
+  background-color: tomato;
+}
+.optionsBox {
+  margin: 20px auto;
+  width: 80%;
+  height: 80%;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: rgb(202, 81, 60);
+}
+
+.options {
+  font-size: 2em;
+  color: white;
+  font-weight: bold;
+}
