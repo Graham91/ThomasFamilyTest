@@ -1,0 +1,52 @@
+.createUseerBlock {
+  width: calc(100% - 430px);
+  height: calc(100% - 100px);
+  border: solid 15px coral;
+  position: absolute;
+  right: 0;
+  top: 70px;
+}
+
+.locationDescription {
+  width: calc(100% - 400px);
+  height: 70px;
+  position: absolute;
+  background-color: rgb(202, 81, 60);
+  right: 0;
+  top: 0;
+  text-align: center;
+  font-size: 3em;
+  color: white;
+  font-weight: bold;
+}
+
+.adduser {
+  width: 33.33%;
+  position: absolute;
+  left: 0;
+  text-align: center;
+  height: 100%;
+}
+
+.deleteuser {
+  width: 33.33%;
+  position: absolute;
+  left: 33.33%;
+  text-align: center;
+  height: 100%;
+}
+.edituser {
+  width: 33.33%;
+  position: absolute;
+  left: 66.66%;
+  text-align: center;
+  height: 100%;
+}
+
+.colorselected {
+  background-color: coral;
+}
+
+.hide {
+  display: none;
+}
