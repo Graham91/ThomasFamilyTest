@@ -16,7 +16,7 @@ function AuthPage(props) {
         </Link>
         <div className="optionsBox">
           <div
-            className="options"
+            className={`options ${userActive ? "" : "coral"}`}
             onClick={() => {
               setuserState(false);
               settestState(true);
@@ -25,7 +25,7 @@ function AuthPage(props) {
             Manage Users
           </div>
           <div
-            className="options"
+            className={`options ${testActive ? "" : "coral"}`}
             onClick={() => {
               setuserState(true);
               settestState(false);
