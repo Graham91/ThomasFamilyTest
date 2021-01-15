@@ -7,9 +7,9 @@ function Userstests(props) {
   const [unfinishedtestsActive, setunfinishedtestsState] = useState(false);
   return (
     <div>
-      <div className="locationDescription">
+      <div className="locationDescriptiongreen">
         <div
-          className={`adduser ${newtestsActive ? "colorselected" : ""}`}
+          className={`adduser ${newtestsActive ? "userGreen" : ""}`}
           onClick={() => {
             setnewtestsState(true);
             setcompletedtestsState(false);
@@ -19,9 +19,7 @@ function Userstests(props) {
           New
         </div>
         <div
-          className={`deleteuser ${
-            completedtestsActive ? "colorselected" : ""
-          }`}
+          className={`deleteuser ${completedtestsActive ? "userGreen" : ""}`}
           onClick={() => {
             setnewtestsState(false);
             setcompletedtestsState(true);
@@ -31,7 +29,7 @@ function Userstests(props) {
           Completed
         </div>
         <div
-          className={`edituser ${unfinishedtestsActive ? "colorselected" : ""}`}
+          className={`edituser ${unfinishedtestsActive ? "userGreen" : ""}`}
           onClick={() => {
             setnewtestsState(false);
             setcompletedtestsState(false);
@@ -41,15 +39,13 @@ function Userstests(props) {
           Unfinished
         </div>
       </div>
-      <div className={`createUseerBlock ${newtestsActive ? "" : "hide"}`}>
+      <div className={`userpageblock ${newtestsActive ? "" : "hide"}`}>
         New Test
       </div>
-      <div className={`createUseerBlock ${completedtestsActive ? "" : "hide"}`}>
+      <div className={`userpageblock ${completedtestsActive ? "" : "hide"}`}>
         Completed Test
       </div>
-      <div
-        className={`createUseerBlock ${unfinishedtestsActive ? "" : "hide"}`}
-      >
+      <div className={`userpageblock ${unfinishedtestsActive ? "" : "hide"}`}>
         Unfinished Tests
       </div>
     </div>

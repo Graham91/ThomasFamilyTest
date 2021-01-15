@@ -11,6 +11,6 @@ var Testschema = new Schema({
 });
 
 // This creates our model from the above schema, using mongoose's model method
-var Test = mongoose.model("test", Testschema);
+var Test = mongoose.model("Test", Testschema);
 
 module.exports = Test;

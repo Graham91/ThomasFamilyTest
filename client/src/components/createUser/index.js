@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./createUser.css";
+import AddUser from "../Userfolders/Add User";
 
 function CreateUser(props) {
   const [addUserActive, setaddUserState] = useState(true);
@@ -40,7 +41,7 @@ function CreateUser(props) {
         </div>
       </div>
       <div className={`createUseerBlock ${addUserActive ? "" : "hide"}`}>
-        Add User
+        <AddUser />
       </div>
       <div className={`createUseerBlock ${deleteUserActive ? "" : "hide"}`}>
         Delete User
