@@ -1,0 +1,27 @@
+.profImage {
+  width: 260px;
+  border: solid 10px coral;
+  border-radius: 20px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+.profileimgmain {
+  height: 280px;
+  width: 280px;
+  margin: 20px;
+  position: relative;
+}
+.personNamemain {
+  position: absolute;
+  top: 200px;
+  width: calc(100% - 20px);
+  height: 2em;
+  background-color: rgb(46, 136, 76);
+  font-size: 2em;
+  width: 260px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  left: 20px;
+}

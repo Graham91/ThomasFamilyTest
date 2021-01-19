@@ -1,0 +1,16 @@
+.fullscreen {
+  margin: 0;
+}
+.passwordModule {
+  position: fixed;
+  width: 500px;
+  height: 350px;
+  background-color: white;
+  top: calc(50% - 175px);
+  left: calc(50% - 250px);
+  z-index: 15;
+  display: none;
+}
+.displayNone {
+  display: none;
+}

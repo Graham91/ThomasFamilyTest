@@ -7,6 +7,10 @@ var UserSchema = new Schema({
     type: String,
     required: true,
   },
+  imageURL: {
+    type: String,
+    required: true,
+  },
   monkeyPoints: {
     type: Number,
     default: 0,
