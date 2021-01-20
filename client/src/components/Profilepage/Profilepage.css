@@ -3,26 +3,45 @@
   position: absolute;
   top: 0;
   height: 100vh;
-  background-color: rgb(46, 136, 76);
+  /* height: 100vh; */
+  /* background-color: rgb(46, 136, 76); */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   z-index: 1;
+  background-color: white;
+}
+.flexbox {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 .userOptionsBox {
   margin: -15% auto;
-  width: 80%;
-  height: 30%;
+  position: absolute;
+  z-index: 20;
+  top: 645px;
+  width: 250px;
+  left: 55px;
+  height: 90px;
   padding: 20px;
   border-radius: 20px;
-  background-color: rgb(30, 92, 51);
+  background-color: #89cae0;
+}
+.strechWhite {
+  width: 400px;
+  flex-grow: 1;
 }
 .picture {
-  width: 100%;
-  border-radius: 10px;
+  left: 55px;
+  border-radius: 20px;
+  position: absolute;
+  top: 210px;
+  padding: 0;
+  width: 270px;
+  border: solid 10px #884de0;
 }
 .personName {
   position: relative;
-
-  background-color: rgb(46, 136, 76);
+  background-color: #681ae0;
   right: 0;
   font-size: 2em;
   padding: 10px 40px;
@@ -31,32 +50,38 @@
   text-align: center;
 }
 .personNameBox {
+  left: 55px;
   position: absolute;
-  top: 70%;
-  width: 100%;
+  top: 390px;
+  width: 290px;
   height: 2em;
 }
-
-.profileimg {
-  width: calc(80% + 20px);
-  border: solid 10px rgb(62, 184, 103);
-  margin: 20% auto;
-  border-radius: 20px;
-  position: relative;
+.mainConatiner {
+  vertical-align: auto;
+  position: absolute;
+  height: 778px;
+  width: 400px;
+  top: calc(50vh - 389px);
 }
 
-.options {
-  font-size: 2em;
+/* .profileimg {
+  width: 250px;
+  border-radius: 20px;
+  position: absolute;
+} */
+
+.options2 {
+  font-size: 1.2em;
   color: white;
   font-weight: bold;
-  padding: 3px;
-  margin: 20px;
+  padding: 2px;
+  margin: 2px;
   text-align: center;
   border-radius: 15px;
 }
 
 .userGreen {
-  background-color: rgb(46, 136, 76);
+  background-color: #de97d3;
 }
 
 .hide {
@@ -75,4 +100,66 @@
   text-align: center;
   text-decoration: none;
   font-weight: bold;
+}
+.backgroundpicture {
+  /* position: absolute; */
+  /* top: 0; */
+  width: 400px;
+  vertical-align: middle;
+}
+.mainConatiner {
+  background: linear-gradient(
+    180deg,
+    #681ae0,
+    #a2cee9,
+    #de97d3,
+    #7847e7,
+    #89cae0,
+    #e194eb,
+    #8658ed,
+    #8cbce7,
+    #e78ce2,
+    #8658ed,
+    #8cbce7,
+    #e78ce2
+  );
+  background-size: 1000% 1000%;
+
+  -webkit-animation: AnimationName 11s linear infinite;
+  -moz-animation: AnimationName 11s linear infinite;
+  animation: AnimationName 11s linear infinite;
+}
+
+@-webkit-keyframes AnimationName {
+  0% {
+    background-position: 51% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 51% 0%;
+  }
+}
+@-moz-keyframes AnimationName {
+  0% {
+    background-position: 51% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 51% 0%;
+  }
+}
+@keyframes AnimationName {
+  0% {
+    background-position: 51% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 51% 0%;
+  }
 }

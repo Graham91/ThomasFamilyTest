@@ -25,3 +25,59 @@
   text-align: center;
   left: 20px;
 }
+.profileimgmain {
+  background: linear-gradient(
+    180deg,
+    #681ae0,
+    #a2cee9,
+    #de97d3,
+    #7847e7,
+    #89cae0,
+    #e194eb,
+    #8658ed,
+    #8cbce7,
+    #e78ce2,
+    #8658ed,
+    #8cbce7,
+    #e78ce2
+  );
+  background-size: 1000% 1000%;
+
+  -webkit-animation: AnimationName 11s linear infinite;
+  -moz-animation: AnimationName 11s linear infinite;
+  animation: AnimationName 11s linear infinite;
+}
+
+@-webkit-keyframes AnimationName {
+  0% {
+    background-position: 51% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 51% 0%;
+  }
+}
+@-moz-keyframes AnimationName {
+  0% {
+    background-position: 51% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 51% 0%;
+  }
+}
+@keyframes AnimationName {
+  0% {
+    background-position: 51% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 51% 0%;
+  }
+}
