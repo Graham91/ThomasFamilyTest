@@ -1,21 +1,79 @@
 .userpageblock {
   width: calc(100% - 430px);
   height: calc(100% - 100px);
-  border: solid 15px rgb(46, 136, 76);
   position: absolute;
   right: 0;
   top: 70px;
+  background-color: #89cae0;
 }
 
 .locationDescriptiongreen {
   width: calc(100% - 400px);
   height: 70px;
   position: absolute;
-  background-color: rgb(30, 92, 51);
   right: 0;
   top: 0;
   text-align: center;
   font-size: 3em;
   color: white;
   font-weight: bold;
+}
+.adduser {
+  width: 33.33%;
+  position: absolute;
+  left: 0;
+  text-align: center;
+  height: 100%;
+}
+
+.deleteuser {
+  width: 33.33%;
+  position: absolute;
+  left: 33.33%;
+  text-align: center;
+  height: 100%;
+}
+.edituser {
+  width: 33.33%;
+  position: absolute;
+  left: 66.66%;
+  text-align: center;
+  height: 100%;
+}
+
+.purple {
+  background-color: #884de0;
+  border-color: #884de0;
+}
+.yellow {
+  background-color: rgb(255, 217, 0);
+}
+
+.yellowborder {
+  border: solid 15px rgb(255, 217, 0);
+}
+.pink {
+  background-color: #de97d3;
+}
+.pinkborder {
+  border: solid 15px #de97d3;
+}
+.red {
+  background-color: rgb(151, 46, 39);
+}
+.redborder {
+  border: solid 15px rgb(151, 46, 39);
+}
+.orange {
+  border-color: rgb(80, 26, 22);
+  background-color: rgb(80, 26, 22);
+}
+.blue {
+  background-color: #89cae0;
+}
+.black {
+  background-color: black;
+}
+.white {
+  background-color: white;
 }

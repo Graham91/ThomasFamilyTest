@@ -14,6 +14,7 @@ function AddUser(props) {
     };
     console.log(userData);
     axios.post("/api/Newusers", { userData }).then((res) => {
+      window.location.reload(false);
       console.log(res);
       console.log(res.data);
     });
@@ -23,7 +24,7 @@ function AddUser(props) {
   }
 
   return (
-    <div>
+    <div className="createUserbox">
       <form>
         <label>
           Name:

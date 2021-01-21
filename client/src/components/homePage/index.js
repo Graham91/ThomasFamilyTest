@@ -16,6 +16,10 @@ function HomePage(props) {
       axios.get("api/users").then((res) => {
         console.log(res);
         setaviableUsers(res.data);
+        // this.context.router.push({
+        //   pathname: "/authProfile",
+        //   state: { users: aviableUsers },
+        // });
       });
       setfetchOnce(false);
     } else {
@@ -35,7 +39,7 @@ function HomePage(props) {
         <PasswordModule user={selecteduser} return={returnTohome} />
       </div>
       <div>
-        <AuthLink />
+        <AuthLink userinfo={aviableUsers} />
       </div>
       <div>
         <SelectUser list={aviableUsers} password={passwordmodule} />

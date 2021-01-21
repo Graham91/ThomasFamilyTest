@@ -1,7 +1,7 @@
-.createUseerBlock {
-  width: calc(100% - 410px);
-  height: calc(100% - 80px);
-  border: solid 5px black;
+.createUserBlock {
+  width: calc(100% - 430px);
+  height: calc(100% - 100px);
+  border: solid 15px black;
   position: absolute;
   right: 0;
   top: 70px;

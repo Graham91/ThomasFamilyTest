@@ -1,0 +1,15 @@
+.smallimg {
+  width: 100px;
+  float: left;
+  margin-right: 10px;
+}
+.userbox {
+  width: 500px;
+  height: 100px;
+  padding: 10px;
+  margin: 5px;
+  background-color: white;
+}
+.writing {
+  font-size: 0.8em;
+}

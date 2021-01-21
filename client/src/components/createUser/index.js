@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./createUser.css";
 import AddUser from "../Userfolders/Add User";
+import DeleteUser from "../Userfolders/deleteUser";
 
 function CreateUser(props) {
   const [addUserActive, setaddUserState] = useState(true);
@@ -40,13 +41,13 @@ function CreateUser(props) {
           Edit
         </div>
       </div>
-      <div className={`createUseerBlock ${addUserActive ? "" : "hide"}`}>
+      <div className={`createUserBlock ${addUserActive ? "" : "hide"}`}>
         <AddUser />
       </div>
-      <div className={`createUseerBlock ${deleteUserActive ? "" : "hide"}`}>
-        Delete User
+      <div className={`createUserBlock ${deleteUserActive ? "" : "hide"}`}>
+        <DeleteUser userinfo={props.userInfo} />
       </div>
-      <div className={`createUseerBlock ${editUserActive ? "" : "hide"}`}>
+      <div className={`createUserBlock ${editUserActive ? "" : "hide"}`}>
         edit User
       </div>
     </div>

@@ -9,27 +9,60 @@ function ProfilePage(props) {
   const [userActive, setuserState] = useState(false);
   const [testActive, settestState] = useState(true);
   const [MPActive, setMPState] = useState(true);
+  const [userpreference, setuserprefence] = useState("volcano");
+  const userPrefenceObject = {
+    unicorn: {
+      image: "https://i.imgur.com/dPMtRhb.png",
+      color1: "purple",
+      color2: "blue",
+      color3: "pink",
+      color4: "white",
+      background: "mainContainerpurple",
+    },
+    volcano: {
+      image: "https://i.imgur.com/7nYpeGs.png",
+      color1: "orange",
+      color2: "red",
+      color3: "yellow",
+      color4: "black",
+      background: "mainContainerred",
+    },
+  };
 
   return (
-    <div>
-      <div className="userManagementHome">
+    <div className="gridlayout">
+      <div
+        className={`userManagementHome ${userPrefenceObject[userpreference].color4}`}
+      >
         <div className="flexbox">
-          <div className="strechWhite"></div>
-          <div className="mainConatiner">
+          <div
+            className={`mainContainer ${userPrefenceObject[userpreference].background}`}
+          >
             <img
-              src="https://i.imgur.com/dPMtRhb.png"
+              src={userPrefenceObject[userpreference].image}
               className="backgroundpicture"
             />
-            <img src="https://i.imgur.com/5RDPVuf.png" className="picture" />
+            <img
+              src="https://i.imgur.com/5RDPVuf.png"
+              className={`picture ${userPrefenceObject[userpreference].color1}`}
+            />
             <div className="personNameBox">
-              <div className="personName">Christopher</div>
+              <div
+                className={`personName ${userPrefenceObject[userpreference].color1}`}
+              >
+                Christopher
+              </div>
             </div>
             <Link to="/" className="userbackbutton">
               back
             </Link>
-            <div className="userOptionsBox">
+            <div
+              className={`userOptionsBox ${userPrefenceObject[userpreference].color2}`}
+            >
               <div
-                className={`options2 ${userActive ? "" : "userGreen"}`}
+                className={`options2 ${
+                  userActive ? "" : userPrefenceObject[userpreference].color3
+                }`}
                 onClick={() => {
                   setuserState(false);
                   settestState(true);
@@ -39,7 +72,9 @@ function ProfilePage(props) {
                 Tests
               </div>
               <div
-                className={`options2 ${testActive ? "" : "userGreen"}`}
+                className={`options2 ${
+                  testActive ? "" : userPrefenceObject[userpreference].color3
+                }`}
                 onClick={() => {
                   setuserState(true);
                   settestState(false);
@@ -49,7 +84,9 @@ function ProfilePage(props) {
                 Settings
               </div>
               <div
-                className={`options2 ${MPActive ? "" : "userGreen"}`}
+                className={`options2 ${
+                  MPActive ? "" : userPrefenceObject[userpreference].color3
+                }`}
                 onClick={() => {
                   setuserState(true);
                   settestState(true);
@@ -63,15 +100,31 @@ function ProfilePage(props) {
           <div className="strechWhite"></div>
         </div>
       </div>
-
-      <div className={` ${userActive ? "hide" : ""}`}>
-        <Userstests />
-      </div>
-      <div className={` ${testActive ? "hide" : ""}`}>
-        <Usersettings />
-      </div>
-      <div className={` ${MPActive ? "hide" : ""}`}>
-        <MonkeyPoints />
+      <div className="userspace">
+        <div className={` ${userActive ? "hide" : ""}`}>
+          <Userstests
+            color3={userPrefenceObject[userpreference].color3}
+            color2={userPrefenceObject[userpreference].color2}
+            color1={userPrefenceObject[userpreference].color1}
+            color4={userPrefenceObject[userpreference].color4}
+          />
+        </div>
+        <div className={` ${testActive ? "hide" : ""}`}>
+          <Usersettings
+            color3={userPrefenceObject[userpreference].color3}
+            color2={userPrefenceObject[userpreference].color2}
+            color1={userPrefenceObject[userpreference].color1}
+            color4={userPrefenceObject[userpreference].color4}
+          />
+        </div>
+        <div className={` ${MPActive ? "hide" : ""}`}>
+          <MonkeyPoints
+            color3={userPrefenceObject[userpreference].color3}
+            color2={userPrefenceObject[userpreference].color2}
+            color1={userPrefenceObject[userpreference].color1}
+            color4={userPrefenceObject[userpreference].color4}
+          />
+        </div>
       </div>
     </div>
   );

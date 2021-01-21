@@ -1,15 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Authpage.css";
 import CreateUser from "../createUser/";
 import Addtest from "../AddTest/";
+import axios from "axios";
 
 function AuthPage(props) {
   const [userActive, setuserState] = useState(false);
   const [testActive, settestState] = useState(true);
+  const [aviableUsers, setaviableUsers] = useState([]);
+  const [fetchOnce, setfetchOnce] = useState(true);
+  useEffect(() => {
+    if (fetchOnce === true) {
+      axios.get("api/users").then((res) => {
+        console.log(res);
+        setaviableUsers(res.data);
+        // this.context.router.push({
+        //   pathname: "/authProfile",
+        //   state: { users: aviableUsers },
+        // });
+      });
+      setfetchOnce(false);
+    } else {
+    }
+  });
+  // const data = this.props.location;
 
   return (
-    <div>
+    <div className="gridlayout">
       <div className="managementHome">
         <Link to="/" className="backbutton">
           back
@@ -35,12 +53,13 @@ function AuthPage(props) {
           </div>
         </div>
       </div>
-
-      <div className={` ${userActive ? "hide" : ""}`}>
-        <CreateUser />
-      </div>
-      <div className={` ${testActive ? "hide" : ""}`}>
-        <Addtest />
+      <div className="userspace">
+        <div className={` ${userActive ? "hide" : ""}`}>
+          <CreateUser userInfo={aviableUsers} />
+        </div>
+        <div className={` ${testActive ? "hide" : ""}`}>
+          <Addtest />
+        </div>
       </div>
     </div>
   );

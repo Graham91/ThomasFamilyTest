@@ -5,11 +5,13 @@ function Userstests(props) {
   const [newtestsActive, setnewtestsState] = useState(true);
   const [completedtestsActive, setcompletedtestsState] = useState(false);
   const [unfinishedtestsActive, setunfinishedtestsState] = useState(false);
+  const color3 = props.color3;
+  const bordercolor3 = color3 + "border";
   return (
     <div>
-      <div className="locationDescriptiongreen">
+      <div className={`locationDescriptiongreen ${props.color1}`}>
         <div
-          className={`adduser ${newtestsActive ? "userGreen" : ""}`}
+          className={`adduser ${newtestsActive ? color3 : ""}`}
           onClick={() => {
             setnewtestsState(true);
             setcompletedtestsState(false);
@@ -19,7 +21,7 @@ function Userstests(props) {
           New
         </div>
         <div
-          className={`deleteuser ${completedtestsActive ? "userGreen" : ""}`}
+          className={`deleteuser ${completedtestsActive ? color3 : ""}`}
           onClick={() => {
             setnewtestsState(false);
             setcompletedtestsState(true);
@@ -29,7 +31,7 @@ function Userstests(props) {
           Completed
         </div>
         <div
-          className={`edituser ${unfinishedtestsActive ? "userGreen" : ""}`}
+          className={`edituser ${unfinishedtestsActive ? color3 : ""}`}
           onClick={() => {
             setnewtestsState(false);
             setcompletedtestsState(false);
@@ -39,13 +41,25 @@ function Userstests(props) {
           Unfinished
         </div>
       </div>
-      <div className={`userpageblock ${newtestsActive ? "" : "hide"}`}>
+      <div
+        className={`userpageblock ${
+          newtestsActive ? "" : "hide"
+        }  ${bordercolor3}`}
+      >
         New Test
       </div>
-      <div className={`userpageblock ${completedtestsActive ? "" : "hide"}`}>
+      <div
+        className={`userpageblock ${
+          completedtestsActive ? "" : "hide"
+        } ${bordercolor3}`}
+      >
         Completed Test
       </div>
-      <div className={`userpageblock ${unfinishedtestsActive ? "" : "hide"}`}>
+      <div
+        className={`userpageblock ${
+          unfinishedtestsActive ? "" : "hide"
+        } ${bordercolor3}`}
+      >
         Unfinished Tests
       </div>
     </div>

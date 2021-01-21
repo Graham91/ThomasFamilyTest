@@ -55,4 +55,18 @@ router.post("/Newusers", (req, res) => {
     });
 });
 
+router.put("/deleteuser", (req, res) => {
+  const userinfo = req.body;
+  console.log(userinfo);
+  userinfo.name;
+  db.User.deleteOne({ Name: userinfo.name }, function (err) {
+    if (!err) {
+      console.log("success");
+      res.send("success");
+    } else {
+      console.log(err);
+    }
+  });
+});
+
 module.exports = router;

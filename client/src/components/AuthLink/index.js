@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./AuthLink.css";
 
@@ -6,7 +6,9 @@ function AuthLink(props) {
   return (
     <div className="banner">
       <Link
-        to="/authProfile"
+        to={{
+          pathname: "/authProfile",
+        }}
         style={{ textDecoration: "none", color: "white" }}
       >
         Tiffany's Tests
