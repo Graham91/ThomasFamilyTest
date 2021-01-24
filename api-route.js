@@ -55,6 +55,23 @@ router.post("/Newusers", (req, res) => {
         .json({ status: 418, message: "arent you late for something?" });
     });
 });
+router.put("/updateuser", (req, res) => {
+  const userinfo = req.body;
+  const userName = userinfo.name;
+
+  db.User.updateOne(
+    { name: userName },
+    {
+      imageURL: userinfo.userData.userhtml,
+      password: userinfo.userData.password,
+    }
+  ).catch((err) => {
+    console.log(err.message);
+    res
+      .status(418)
+      .json({ status: 418, message: "arent you late for something?" });
+  });
+});
 
 router.put("/deleteuser", (req, res) => {
   const userinfo = req.body;

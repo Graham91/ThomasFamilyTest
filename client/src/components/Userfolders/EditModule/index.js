@@ -1,15 +1,55 @@
 import React, { useState, useEffect } from "react";
 import "./EditModule.css";
+import axios from "axios";
 
 function EditModule(props) {
   const [name, setName] = useState("");
   const [imgSource, setimgSource] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordOnce, setpasswordOnce] = useState(true);
+  const [imgOnce, setimgOnce] = useState(true);
+
   useEffect(() => {
+    // if (fetchOnce === true) {
     setName(props.user);
-    setimgSource(props.imgurl);
-    setPassword(props.password);
+    if (imgOnce === true) {
+      setimgSource(props.imgurl);
+    }
+    if (passwordOnce === true) {
+      setPassword(props.password);
+    }
+
+    // } else {
+    // }
   });
+
+  function editButton(e) {
+    e.preventDefault();
+    let indicator = e.target.value;
+    if (indicator === "password") {
+      setpasswordOnce(false);
+    }
+    if (indicator === "imgURL") {
+      setimgOnce(false);
+    }
+  }
+
+  function handleclick() {
+    let userData = {
+      name: name,
+      userhtml: imgSource,
+      password: password,
+    };
+    console.log(userData);
+    axios.put("/api/updateuser", { userData }).then((res) => {
+      window.location.reload(false);
+      console.log(res);
+      console.log(res.data);
+
+      props.return();
+    });
+    // event.preventDefault();
+  }
 
   return (
     <div>
@@ -37,6 +77,9 @@ function EditModule(props) {
               value={imgSource}
               onChange={(e) => setimgSource(e.target.value)}
             />
+            <button onClick={editButton} value="imgURL">
+              Edit
+            </button>
           </label>
           <br />
           <label>
@@ -47,8 +90,14 @@ function EditModule(props) {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            <button onClick={editButton} value="password">
+              Edit
+            </button>
           </label>
         </form>
+        <button type="submit" value="Submit" onClick={handleclick}>
+          submit
+        </button>
       </div>
     </div>
   );
