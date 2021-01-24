@@ -6,6 +6,7 @@ import "./adduser.css";
 function AddUser(props) {
   const [name, setName] = useState("");
   const [imgSource, setimgSource] = useState("");
+  const [password, setPassword] = useState("");
 
   function handleclick() {
     let userData = {

@@ -9,7 +9,7 @@ function ProfilePage(props) {
   const [userActive, setuserState] = useState(false);
   const [testActive, settestState] = useState(true);
   const [MPActive, setMPState] = useState(true);
-  const [userpreference, setuserprefence] = useState("volcano");
+  const [userpreference, setuserprefence] = useState("unicorn");
   const userPrefenceObject = {
     unicorn: {
       image: "https://i.imgur.com/dPMtRhb.png",

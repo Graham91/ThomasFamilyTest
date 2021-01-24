@@ -7,6 +7,7 @@ import "./edituser.css";
 function EditUser(props) {
   const [showedit, setshowedit] = useState(true);
   const [selecteduser, setselecteduser] = useState("");
+  const [imageURL, setimageURL] = useState("");
 
   const handleclick = (e) => {
     let str = e.target.value;
@@ -25,6 +26,7 @@ function EditUser(props) {
     //     console.log(res.data);
     //   });
     setselecteduser(person);
+    setimageURL(password);
     setshowedit(false);
   };
   const returnTohome = () => {
@@ -34,7 +36,12 @@ function EditUser(props) {
   return (
     <div className="createUserbox">
       <div className={` ${showedit ? "displayNone" : ""}`}>
-        <EditModule return={returnTohome} user={selecteduser} />
+        <EditModule
+          return={returnTohome}
+          user={selecteduser}
+          imgurl={imageURL}
+          password={props.password}
+        />
       </div>
       {props.userinfo.map((person, index) => (
         <div className="userWhole">
