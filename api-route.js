@@ -39,6 +39,7 @@ router.post("/Newusers", (req, res) => {
   let userData = {
     Name: userinfo.userData.name,
     imageURL: userinfo.userData.userhtml,
+    password: userinfo.userData.password,
     monkeyPoints: 0,
     tests: [],
   };

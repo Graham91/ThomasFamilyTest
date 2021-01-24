@@ -12,6 +12,7 @@ function AddUser(props) {
     let userData = {
       name: name,
       userhtml: imgSource,
+      password: password,
     };
     console.log(userData);
     axios.post("/api/Newusers", { userData }).then((res) => {
@@ -21,6 +22,7 @@ function AddUser(props) {
     });
     setName("");
     setimgSource("");
+    setPassword("");
     // event.preventDefault();
   }
 
@@ -43,6 +45,16 @@ function AddUser(props) {
             type="text"
             value={imgSource}
             onChange={(e) => setimgSource(e.target.value)}
+          />
+        </label>
+        <br />
+        <label>
+          Password
+          <input
+            name="ImageSource"
+            type="text"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </label>
       </form>

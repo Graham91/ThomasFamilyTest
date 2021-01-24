@@ -8,6 +8,7 @@ function EditUser(props) {
   const [showedit, setshowedit] = useState(true);
   const [selecteduser, setselecteduser] = useState("");
   const [imageURL, setimageURL] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleclick = (e) => {
     let str = e.target.value;
@@ -15,7 +16,8 @@ function EditUser(props) {
 
     let person = array[0];
     let number = parseInt(array[1]);
-    let password = props.userinfo[number].imageURL;
+    let imgurl = props.userinfo[number].imageURL;
+    let passwordlet = props.userinfo[number].password;
     console.log(props.userinfo[number]);
     console.log(person + " password:" + password);
     // axios
@@ -26,7 +28,8 @@ function EditUser(props) {
     //     console.log(res.data);
     //   });
     setselecteduser(person);
-    setimageURL(password);
+    setPassword(passwordlet);
+    setimageURL(imgurl);
     setshowedit(false);
   };
   const returnTohome = () => {
@@ -40,7 +43,7 @@ function EditUser(props) {
           return={returnTohome}
           user={selecteduser}
           imgurl={imageURL}
-          password={props.password}
+          password={password}
         />
       </div>
       {props.userinfo.map((person, index) => (
@@ -49,7 +52,7 @@ function EditUser(props) {
             imgsrc={person.imageURL}
             name={person.Name}
             key={index}
-            password={props.password}
+            password={person.password}
           />
           <button
             className="DeleteButton"

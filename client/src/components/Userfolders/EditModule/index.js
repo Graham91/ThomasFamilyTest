@@ -8,6 +8,7 @@ function EditModule(props) {
   useEffect(() => {
     setName(props.user);
     setimgSource(props.imgurl);
+    setPassword(props.password);
   });
 
   return (

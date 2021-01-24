@@ -32,7 +32,7 @@ function DeleteUser(props) {
             imgsrc={person.imageURL}
             name={person.Name}
             key={index}
-            password={props.password}
+            password={person.password}
           />
           <button
             className="DeleteButton"

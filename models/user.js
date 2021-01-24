@@ -11,6 +11,10 @@ var UserSchema = new Schema({
     type: String,
     required: true,
   },
+  password: {
+    type: String,
+    require: true,
+  },
   monkeyPoints: {
     type: Number,
     default: 0,
