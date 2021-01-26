@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./addtest.css";
+import Editor1 from "../formeditor";
 
 function Addtest(props) {
   const [addtestActive, setaddtestState] = useState(true);
@@ -44,6 +45,7 @@ function Addtest(props) {
       </div>
       <div className={`createUseerBlock ${edittestActive ? "" : "hide"}`}>
         Edit Test
+        <Editor1 />
       </div>
       <div className={`createUseerBlock ${savedtestActive ? "" : "hide"}`}>
         Saved Tests
