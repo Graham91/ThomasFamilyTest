@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./addtest.css";
 import Editor1 from "../formeditor";
+import AddTestPage from "../addtestpage";
+import { PromiseProvider } from "mongoose";
 
 function Addtest(props) {
   const [addtestActive, setaddtestState] = useState(true);
@@ -41,7 +43,7 @@ function Addtest(props) {
         </div>
       </div>
       <div className={`createUseerBlock ${addtestActive ? "" : "hide"}`}>
-        Add Test
+        <AddTestPage users={props.userInfo} testchanger={props.testchanger} />
       </div>
       <div className={`createUseerBlock ${edittestActive ? "" : "hide"}`}>
         Edit Test

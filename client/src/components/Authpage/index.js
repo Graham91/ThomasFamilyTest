@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./Authpage.css";
 import CreateUser from "../createUser/";
 import Addtest from "../AddTest/";
+import TestCreator from "../TextCreator";
 import axios from "axios";
 
 function AuthPage(props) {
@@ -10,24 +11,42 @@ function AuthPage(props) {
   const [testActive, settestState] = useState(true);
   const [aviableUsers, setaviableUsers] = useState([]);
   const [fetchOnce, setfetchOnce] = useState(true);
+  const [displaytesteditor, setdisplaytesteditor] = useState(false);
+  const [selecteduser, setselecteduser] = useState("");
+  const [edituserstructure, setedituserstructure] = useState({});
+
   useEffect(() => {
     if (fetchOnce === true) {
       axios.get("api/users").then((res) => {
         console.log(res);
         setaviableUsers(res.data);
-        // this.context.router.push({
-        //   pathname: "/authProfile",
-        //   state: { users: aviableUsers },
-        // });
+        let structure = {};
+        res.data.forEach((element) => {
+          structure[element.Name] = {};
+        });
+        setedituserstructure(structure);
       });
       setfetchOnce(false);
     } else {
     }
   });
+  const testChanger = (name) => {
+    setselecteduser(name);
+    setdisplaytesteditor(true);
+  };
+  const backButtonfunction = () => {
+    setdisplaytesteditor(false);
+  };
   // const data = this.props.location;
 
   return (
     <div className="gridlayout">
+      <TestCreator
+        classFinder={displaytesteditor}
+        selecteduser={selecteduser}
+        userInfo={edituserstructure}
+        back={backButtonfunction}
+      />
       <div className="managementHome">
         <Link to="/" className="backbutton">
           back
@@ -58,7 +77,7 @@ function AuthPage(props) {
           <CreateUser userInfo={aviableUsers} />
         </div>
         <div className={` ${testActive ? "hide" : ""}`}>
-          <Addtest />
+          <Addtest userInfo={aviableUsers} testchanger={testChanger} />
         </div>
       </div>
     </div>

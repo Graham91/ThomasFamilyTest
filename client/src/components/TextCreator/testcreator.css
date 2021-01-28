@@ -1,0 +1,25 @@
+.testCreator {
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  z-index: 100;
+}
+.testQuestionNavigation {
+  width: calc(30% - 20px);
+  height: calc(100% - 20px);
+  border: solid 10px black;
+}
+.testQuestionCreator {
+  width: calc(70% - 20px);
+  height: calc(100% - 20px);
+  border: solid 10px red;
+}
+.backbuttoneditor {
+  position: fixed;
+  top: 30px;
+}
+.hide {
+  display: none;
+}
