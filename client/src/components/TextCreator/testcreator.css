@@ -23,3 +23,13 @@
 .hide {
   display: none;
 }
+.questionIndex {
+  height: 50px;
+  width: calc(100% - 8px);
+  border: solid 4px black;
+  background-color: blueviolet;
+  color: white;
+  font-size: 1.6em;
+  text-align: center;
+  padding-top: 10px;
+}

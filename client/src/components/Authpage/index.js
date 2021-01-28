@@ -14,6 +14,7 @@ function AuthPage(props) {
   const [displaytesteditor, setdisplaytesteditor] = useState(false);
   const [selecteduser, setselecteduser] = useState("");
   const [edituserstructure, setedituserstructure] = useState({});
+  const [editNavstructure, seteditNavstructure] = useState({});
 
   useEffect(() => {
     if (fetchOnce === true) {
@@ -24,12 +25,23 @@ function AuthPage(props) {
         res.data.forEach((element) => {
           structure[element.Name] = {};
         });
+        let navStructure = {};
+        res.data.forEach((element) => {
+          navStructure[element.Name] = [];
+        });
         setedituserstructure(structure);
+        seteditNavstructure(navStructure);
       });
       setfetchOnce(false);
     } else {
     }
   });
+
+  const updateUserstructure = (name, results, array) => {
+    edituserstructure[name] = results;
+    editNavstructure[name] = array;
+  };
+
   const testChanger = (name) => {
     setselecteduser(name);
     setdisplaytesteditor(true);
@@ -42,6 +54,9 @@ function AuthPage(props) {
   return (
     <div className="gridlayout">
       <TestCreator
+        questions={edituserstructure}
+        navArray={editNavstructure}
+        update={updateUserstructure}
         classFinder={displaytesteditor}
         selecteduser={selecteduser}
         userInfo={edituserstructure}
