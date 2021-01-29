@@ -6,7 +6,7 @@ import ProfileImage from "../Profileimage";
 function AddTestPage(props) {
   return (
     <div>
-      <div>Choose a person</div>
+      <h1 className="adduserInstructions">Select Family Member For New Test</h1>
       <div className="displayChoices">
         {props.users.map((person, index) => (
           <ProfileImageSmall

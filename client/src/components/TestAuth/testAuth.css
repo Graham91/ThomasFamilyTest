@@ -3,7 +3,7 @@
   height: 150px;
   width: 100px;
   background-color: white;
-  margin: 20px;
+  margin: 20px 50px 20px 50px;
   -webkit-box-shadow: 5px 5px 15px 5px #000000;
   box-shadow: 5px 5px 15px 5px #000000;
   cursor: pointer;

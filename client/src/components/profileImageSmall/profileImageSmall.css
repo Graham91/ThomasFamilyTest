@@ -3,25 +3,31 @@
   border: solid 10px coral;
   border-radius: 20px;
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: -10px;
+  left: -10px;
+  cursor: pointer;
 }
 .profileimgsmall {
   height: 150px;
   width: 150px;
   margin: 20px;
   position: relative;
+  -webkit-box-shadow: 12px 11px 15px 5px rgba(0, 0, 0, 0.63);
+  box-shadow: 12px 11px 15px 5px rgba(0, 0, 0, 0.63);
+  cursor: pointer;
 }
 .personNamemainsmall {
   position: absolute;
-  top: 110px;
+  top: 90px;
   width: calc(100% - 20px);
   height: 1.6em;
-  background-color: rgb(46, 136, 76);
+  background-color: coral;
   font-size: 1.6em;
   width: 150px;
   color: white;
   font-weight: bold;
   text-align: center;
-  left: 20px;
+  opacity: 0.7;
+  left: 0px;
+  cursor: pointer;
 }
