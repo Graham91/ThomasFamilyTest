@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./testcreator.css";
+import axios from "axios";
+
 import QuestionEditor from "../questionEditor";
 let questioncounter = 1;
 
@@ -43,9 +45,35 @@ function TestCreator(props) {
   const back = () => {
     props.back();
     // setuseOnce(true);
-    settestquestions({});
-    settestNavigationArray([]);
+    questioncounter = 1;
+    setselectquestion("question0");
+    settestquestions({
+      question0: {
+        question: "2+2",
+        a: "",
+        b: "",
+        c: "",
+        d: "",
+        correstAnswer: "",
+      },
+    });
+    settestNavigationArray(["question0"]);
   };
+  const saveInformation = () => {
+    const testInfo = {
+      Name: props.testName,
+      User: props.selecteduser,
+      Submited: false,
+      questions: testquestions,
+      questionsArray: testNavigationArray,
+    };
+    axios.post("/api/savetest", { testInfo }).then((res) => {
+      window.location.reload(false);
+      console.log(res);
+      console.log(res.data);
+    });
+  };
+  const submitInformation = () => {};
   const updatequestion = (value, location) => {
     // console.log(value);
     let fo = { ...testquestions };
@@ -72,7 +100,8 @@ function TestCreator(props) {
         ))}
       </div>
       <div className="testQuestionCreator">
-        test for {props.selecteduser}
+        <h1>Test for {props.selecteduser}</h1>
+        <h2>Test Name: {props.testName}</h2>
         <button onClick={addNewQuestion}>addNewQuestion</button>
         <div>
           <input
@@ -108,6 +137,8 @@ function TestCreator(props) {
             ></input>
           </div>
         </div>
+        <button onClick={saveInformation}>Save</button>
+        <button>Submit</button>
       </div>
     </div>
   );

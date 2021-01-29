@@ -4,6 +4,7 @@ import "./Authpage.css";
 import CreateUser from "../createUser/";
 import Addtest from "../AddTest/";
 import TestCreator from "../TextCreator";
+import NameTest from "../NameTest";
 import axios from "axios";
 
 function AuthPage(props) {
@@ -11,10 +12,12 @@ function AuthPage(props) {
   const [testActive, settestState] = useState(true);
   const [aviableUsers, setaviableUsers] = useState([]);
   const [fetchOnce, setfetchOnce] = useState(true);
+  const [displayNametest, setdisplayNameTest] = useState(false);
   const [displaytesteditor, setdisplaytesteditor] = useState(false);
   const [selecteduser, setselecteduser] = useState("");
   const [edituserstructure, setedituserstructure] = useState({});
   const [editNavstructure, seteditNavstructure] = useState({});
+  const [testName, settestName] = useState("");
 
   useEffect(() => {
     if (fetchOnce === true) {
@@ -44,15 +47,32 @@ function AuthPage(props) {
 
   const testChanger = (name) => {
     setselecteduser(name);
+    setdisplayNameTest(true);
+  };
+  const openTestModule = () => {
+    setdisplayNameTest(false);
     setdisplaytesteditor(true);
   };
+
   const backButtonfunction = () => {
     setdisplaytesteditor(false);
+  };
+  const backButtonfunctionName = () => {
+    setdisplayNameTest(false);
   };
   // const data = this.props.location;
 
   return (
     <div className="gridlayout">
+      <NameTest
+        user={selecteduser}
+        classFinder={displayNametest}
+        back={backButtonfunctionName}
+        testname={testName}
+        settestName={settestName}
+        openTestModule={openTestModule}
+      />
+
       <TestCreator
         questions={edituserstructure}
         navArray={editNavstructure}
@@ -61,6 +81,7 @@ function AuthPage(props) {
         selecteduser={selecteduser}
         userInfo={edituserstructure}
         back={backButtonfunction}
+        testName={testName}
       />
       <div className="managementHome">
         <Link to="/" className="backbutton">

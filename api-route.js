@@ -72,7 +72,46 @@ router.put("/updateuser", (req, res) => {
       .json({ status: 418, message: "arent you late for something?" });
   });
 });
-
+router.post("/savetest", (req, res) => {
+  const testInfo = req.body.testInfo;
+  console.log(testInfo);
+  const newtest = {
+    Name: testInfo.Name,
+    User: testInfo.User,
+    Submited: testInfo.Submited,
+    questions: testInfo.questions,
+    questionsArray: testInfo.questionsArray,
+  };
+  console.log(newtest);
+  db.Test.find({ Name: testInfo.Name }, function (err, docs) {
+    if (!docs.length) {
+      db.Test.create(newtest)
+        .then((res) => {
+          res.send("success");
+        })
+        .catch((err) => {
+          console.log(err.message);
+          res.send("err");
+        });
+    } else {
+      db.Test.updateOne(
+        { Name: testInfo.Name },
+        {
+          questions: testInfo.questions,
+          questionsArray: testInfo.questionsArray,
+        }
+      ).catch((err) => {
+        console.log(err.message);
+        res
+          .status(418)
+          .json({ status: 418, message: "arent you late for something?" });
+      });
+    }
+  });
+});
+router.put("/submittest", (req, res) => {
+  const testInfo = req.body;
+});
 router.put("/deleteuser", (req, res) => {
   const userinfo = req.body;
   console.log(userinfo);

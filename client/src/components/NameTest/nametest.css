@@ -1,0 +1,22 @@
+.moduleBackground {
+  position: fixed;
+  opacity: 0.4;
+  background: black;
+  z-index: 50;
+  height: 100%;
+  width: 100%;
+}
+.addNameModule {
+  position: fixed;
+  height: 40%;
+  width: 60%;
+  background-color: grey;
+  border: solid 8px red;
+  z-index: 80;
+  text-align: center;
+  top: 30%;
+  left: 20%;
+}
+.hide {
+  display: none;
+}
