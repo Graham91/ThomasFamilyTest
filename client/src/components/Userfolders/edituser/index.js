@@ -37,7 +37,7 @@ function EditUser(props) {
   };
 
   return (
-    <div className="createUserbox">
+    <div>
       <div className={` ${showedit ? "displayNone" : ""}`}>
         <EditModule
           return={returnTohome}

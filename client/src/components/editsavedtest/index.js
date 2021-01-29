@@ -22,15 +22,14 @@ function TestCreator(props) {
 
   useEffect(() => {
     if (props.userselected === true) {
-      if (useonce === true) {
-        settestquestions(props.selectquestions);
+      if (setonce === true) {
+        settestquestions(props.selectedquestions);
         settestNavigationArray(props.selectedArray);
         setuseOnce(false);
       }
     } else {
     }
   });
-
   const addNewQuestion = () => {
     console.log("worked");
     let questionnumber = "question" + questioncounter;
@@ -70,7 +69,6 @@ function TestCreator(props) {
       },
     });
     settestNavigationArray(["question0"]);
-    setuseOnce(true);
   };
   const saveInformation = () => {
     const testInfo = {

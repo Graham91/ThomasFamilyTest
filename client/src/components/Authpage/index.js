@@ -15,6 +15,9 @@ function AuthPage(props) {
   const [displayNametest, setdisplayNameTest] = useState(false);
   const [displaytesteditor, setdisplaytesteditor] = useState(false);
   const [selecteduser, setselecteduser] = useState("");
+  const [selectedArray, setselectedArray] = useState([]);
+  const [userselected, setuserselected] = useState(false);
+  const [selectedquestions, setselectedquestions] = useState({});
   const [edituserstructure, setedituserstructure] = useState({});
   const [editNavstructure, seteditNavstructure] = useState({});
   const [testName, settestName] = useState("");
@@ -53,9 +56,18 @@ function AuthPage(props) {
     setdisplayNameTest(false);
     setdisplaytesteditor(true);
   };
-
+  const opensavedtested = (questions, array, testname, user) => {
+    console.log(questions);
+    console.log(array);
+    setselectedquestions(questions);
+    setselectedArray(array);
+    settestName(testname);
+    setselecteduser(user);
+    setuserselected(true);
+  };
   const backButtonfunction = () => {
     setdisplaytesteditor(false);
+    setuserselected(false);
   };
   const backButtonfunctionName = () => {
     setdisplayNameTest(false);
@@ -82,6 +94,9 @@ function AuthPage(props) {
         userInfo={edituserstructure}
         back={backButtonfunction}
         testName={testName}
+        selectedArray={selectedArray}
+        selectquestions={selectedquestions}
+        userselected={userselected}
       />
       <div className="managementHome">
         <Link to="/" className="backbutton">
@@ -113,7 +128,12 @@ function AuthPage(props) {
           <CreateUser userInfo={aviableUsers} />
         </div>
         <div className={` ${testActive ? "hide" : ""}`}>
-          <Addtest userInfo={aviableUsers} testchanger={testChanger} />
+          <Addtest
+            userInfo={aviableUsers}
+            testchanger={testChanger}
+            openTestModule={openTestModule}
+            opensavedtested={opensavedtested}
+          />
         </div>
       </div>
     </div>

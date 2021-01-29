@@ -1,0 +1,42 @@
+.testcard {
+  position: relative;
+  height: 150px;
+  width: 100px;
+  background-color: white;
+  margin: 20px;
+  -webkit-box-shadow: 5px 5px 15px 5px #000000;
+  box-shadow: 5px 5px 15px 5px #000000;
+  cursor: pointer;
+}
+.personNametest {
+  padding-top: 5px;
+  height: 30px;
+  background-color: blue;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  top: 20px;
+  left: -10px;
+  -webkit-box-shadow: 2px 2px 15px 5px rgba(0, 0, 0, 0.63);
+  box-shadow: 2px 2px 15px 5px rgba(0, 0, 0, 0.63);
+  white-space: nowrap;
+}
+
+.testName {
+  overflow: hidden;
+  padding-top: 5px;
+  height: 30px;
+  background-color: blue;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  top: 100px;
+  left: 10px;
+  -webkit-box-shadow: 2px 2px 15px 5px rgba(0, 0, 0, 0.63);
+  box-shadow: 2px 2px 15px 5px rgba(0, 0, 0, 0.63);
+  white-space: nowrap;
+}

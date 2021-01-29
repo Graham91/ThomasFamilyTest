@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./addtest.css";
 import Editor1 from "../formeditor";
 import AddTestPage from "../addtestpage";
+import ViewSavedTests from "../Viewsavedtest";
 import { PromiseProvider } from "mongoose";
 
 function Addtest(props) {
@@ -50,7 +51,10 @@ function Addtest(props) {
         <Editor1 />
       </div>
       <div className={`createUseerBlock ${savedtestActive ? "" : "hide"}`}>
-        Saved Tests
+        <ViewSavedTests
+          openTestModule={props.openTestModule}
+          opensavedtested={props.opensavedtested}
+        />
       </div>
     </div>
   );

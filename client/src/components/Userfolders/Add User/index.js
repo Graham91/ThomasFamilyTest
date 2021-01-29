@@ -27,7 +27,7 @@ function AddUser(props) {
   }
 
   return (
-    <div className="createUserbox">
+    <div>
       <form>
         <label>
           Name:

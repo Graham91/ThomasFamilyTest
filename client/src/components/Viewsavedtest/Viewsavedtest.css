@@ -1,11 +1,11 @@
-.createUserBlock {
+/* .createUserBlock {
   width: 500px;
   height: 100px;
   border: solid 5px black;
   position: absolute;
   right: 0;
   top: 70px;
-}
+} */
 
 .locationDescription {
   width: calc(100% - 400px);
@@ -18,4 +18,12 @@
   font-size: 3em;
   color: white;
   font-weight: bold;
+}
+.savedTestsBox {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  border: solid 1px black;
 }

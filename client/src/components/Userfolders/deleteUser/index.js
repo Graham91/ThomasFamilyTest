@@ -24,7 +24,7 @@ function DeleteUser(props) {
   };
 
   return (
-    <div className="createUserbox">
+    <div>
       <div></div>
       {props.userinfo.map((person, index) => (
         <div className="userWhole">

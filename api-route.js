@@ -109,8 +109,18 @@ router.post("/savetest", (req, res) => {
     }
   });
 });
-router.put("/submittest", (req, res) => {
-  const testInfo = req.body;
+
+router.get("/savedtests", (req, res) => {
+  db.Test.find({ Submited: false })
+    .then((data) => {
+      res.status(200).json(data);
+    })
+    .catch((err) => {
+      res.status(400).json({
+        error: err,
+        message: err.message,
+      });
+    });
 });
 router.put("/deleteuser", (req, res) => {
   const userinfo = req.body;
