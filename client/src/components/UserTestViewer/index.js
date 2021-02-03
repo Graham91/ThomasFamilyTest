@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import TestAuth from "../TestAuth";
+import TestUser from "../testUser";
 import "./UserTestViewer.css";
 
 function UserTestsViewer(props) {
@@ -67,7 +67,7 @@ function UserTestsViewer(props) {
   return (
     <div className="savedTestsBox">
       {newarrayobject[props.type].map((person, index) => (
-        <p key={index}>{person.testName}</p>
+        <TestUser key={index} name={person.testName} />
       ))}
     </div>
   );
