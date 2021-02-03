@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import HomePage from "./components/homePage/";
@@ -14,7 +13,7 @@ class App extends Component {
           <Route exact path="/">
             <HomePage />
           </Route>
-          <Route exact path="/profile">
+          <Route exact path="/profile/:id">
             <ProfilePage />
           </Route>
           <Route exact path="/authProfile">

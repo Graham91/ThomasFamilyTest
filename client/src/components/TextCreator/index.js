@@ -19,15 +19,27 @@ function TestCreator(props) {
   const [testNavigationArray, settestNavigationArray] = useState(["question0"]);
   const [selectquestion, setselectquestion] = useState("question0");
   const [useonce, setuseOnce] = useState(true);
+  const [useoncechecked, setuseOncechecked] = useState(true);
+  const [checkedobject, setcheckedobject] = useState({
+    a: false,
+    b: false,
+    c: false,
+    d: false,
+  });
 
   useEffect(() => {
     if (props.userselected === true) {
       if (useonce === true) {
         settestquestions(props.selectquestions);
         settestNavigationArray(props.selectedArray);
+        updateselected(selectquestion);
         setuseOnce(false);
       }
     } else {
+      if (useoncechecked === true) {
+        updateselected(selectquestion);
+        setuseOncechecked(false);
+      }
     }
   });
 
@@ -53,6 +65,26 @@ function TestCreator(props) {
     e.preventDefault();
     let val = e.target.getAttribute("value");
     setselectquestion(val);
+    updateselected(val);
+  };
+  const updateselected = (questionnumber) => {
+    let correct = testquestions[questionnumber].correstAnswer;
+    if (correct === "") {
+      let newcheckedobject = { ...checkedobject };
+      newcheckedobject.a = false;
+      newcheckedobject.b = false;
+      newcheckedobject.c = false;
+      newcheckedobject.d = false;
+      setcheckedobject(newcheckedobject);
+    } else {
+      let newcheckedobject = { ...checkedobject };
+      newcheckedobject.a = false;
+      newcheckedobject.b = false;
+      newcheckedobject.c = false;
+      newcheckedobject.d = false;
+      newcheckedobject[correct] = true;
+      setcheckedobject(newcheckedobject);
+    }
   };
   const back = () => {
     props.back();
@@ -86,6 +118,22 @@ function TestCreator(props) {
       console.log(res.data);
     });
   };
+  const changebox = (letter) => {
+    console.log(letter);
+    let newcheckedobject = { ...checkedobject };
+    newcheckedobject.a = false;
+    newcheckedobject.b = false;
+    newcheckedobject.c = false;
+    newcheckedobject.d = false;
+    newcheckedobject[letter] = true;
+    setcheckedobject(newcheckedobject);
+    let fo = { ...testquestions };
+    let la = selectquestion;
+    let birthday = fo[la];
+    birthday.correstAnswer = letter;
+    console.log("hi");
+    settestquestions(fo);
+  };
   const submitInformation = () => {
     const testInfo = {
       Name: props.testName,
@@ -94,8 +142,8 @@ function TestCreator(props) {
       questions: testquestions,
       questionsArray: testNavigationArray,
     };
-    axios.post("/api/savetest", { testInfo }).then((res) => {
-      window.location.reload(false);
+    axios.post("/api/submittest", { testInfo }).then((res) => {
+      // window.location.reload(false);
       console.log(res);
       console.log(res.data);
     });
@@ -135,6 +183,12 @@ function TestCreator(props) {
             onChange={(e) => updatequestion(e.target.value, "question")}
           ></input>
           <div>
+            <input
+              type="checkbox"
+              checked={checkedobject.a}
+              value="a"
+              onChange={(e) => changebox(e.target.value)}
+            />
             A.{" "}
             <input
               value={testquestions[selectquestion].a}
@@ -142,6 +196,12 @@ function TestCreator(props) {
             ></input>
           </div>
           <div>
+            <input
+              type="checkbox"
+              checked={checkedobject.b}
+              onChange={(e) => changebox(e.target.value)}
+              value="b"
+            />
             B.{" "}
             <input
               value={testquestions[selectquestion].b}
@@ -149,6 +209,12 @@ function TestCreator(props) {
             ></input>
           </div>
           <div>
+            <input
+              type="checkbox"
+              checked={checkedobject.c}
+              onChange={(e) => changebox(e.target.value)}
+              value="c"
+            />
             C.{" "}
             <input
               value={testquestions[selectquestion].c}
@@ -156,6 +222,12 @@ function TestCreator(props) {
             ></input>
           </div>
           <div>
+            <input
+              type="checkbox"
+              checked={checkedobject.d}
+              onChange={(e) => changebox(e.target.value)}
+              value="d"
+            />
             D.{" "}
             <input
               value={testquestions[selectquestion].d}

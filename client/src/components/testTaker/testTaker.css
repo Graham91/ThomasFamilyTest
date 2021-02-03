@@ -1,0 +1,17 @@
+.testTake {
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  z-index: 110;
+}
+.testtakewhole {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  z-index: 200;
+  background-color: white;
+}
+.hide {
+  display: none;
+}
