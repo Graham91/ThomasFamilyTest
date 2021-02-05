@@ -1,5 +1,6 @@
 import { EditorPropTypes } from "@tinymce/tinymce-react/lib/cjs/main/ts/components/EditorPropTypes";
 import React, { useState } from "react";
+import ProfilePage from "../Profilepage";
 import UserTestsViewer from "../UserTestViewer";
 import "./Usertests.css";
 
@@ -48,21 +49,33 @@ function Userstests(props) {
           newtestsActive ? "" : "hide"
         }  ${bordercolor3}`}
       >
-        <UserTestsViewer testinfo={props.testinfo} type={"new"} />
+        <UserTestsViewer
+          testinfo={props.testinfo}
+          type={"new"}
+          maketest={props.maketest}
+        />
       </div>
       <div
         className={`userpageblock ${
           completedtestsActive ? "" : "hide"
         } ${bordercolor3}`}
       >
-        <UserTestsViewer testinfo={props.testinfo} type={"completed"} />
+        <UserTestsViewer
+          testinfo={props.testinfo}
+          type={"completed"}
+          maketest={props.maketest}
+        />
       </div>
       <div
         className={`userpageblock ${
           unfinishedtestsActive ? "" : "hide"
         } ${bordercolor3}`}
       >
-        <UserTestsViewer testinfo={props.testinfo} type={"unfinished"} />
+        <UserTestsViewer
+          testinfo={props.testinfo}
+          type={"unfinished"}
+          maketest={props.maketest}
+        />
       </div>
     </div>
   );

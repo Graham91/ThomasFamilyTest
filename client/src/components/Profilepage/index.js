@@ -11,9 +11,10 @@ function ProfilePage(props) {
   const [userActive, setuserState] = useState(false);
   const [testActive, settestState] = useState(true);
   const [MPActive, setMPState] = useState(true);
-  const [showTestTaker, setshowtestTaker] = useState(true);
+  const [showTestTaker, setshowtestTaker] = useState(false);
   const [userpreference, setuserprefence] = useState("unicorn");
   const [getinfoOnce, setgetinfoOnce] = useState(true);
+  const [selectedTest, setselectedTest] = useState({});
   const [userinfo, setuserinfo] = useState({
     monkeyPoints: 0,
     tests: [],
@@ -52,13 +53,22 @@ function ProfilePage(props) {
     } else {
     }
   });
-  const getAvailbleTest = () => {};
+  const getAvailbleTest = (testSelected) => {
+    setselectedTest(testSelected);
+    // console.log(selectedTest.questions);
+    setshowtestTaker(true);
+  };
   const closetesttaker = () => {
     setshowtestTaker(false);
   };
   return (
     <div>
-      <TestTaker show={showTestTaker} back={closetesttaker} />
+      <TestTaker
+        show={showTestTaker}
+        back={closetesttaker}
+        questions={selectedTest.questions}
+        questionsArray={selectedTest.questionsArray}
+      />
       <div className="gridlayout">
         <div
           className={`userManagementHome ${userPrefenceObject[userpreference].color4}`}
@@ -137,6 +147,7 @@ function ProfilePage(props) {
               color1={userPrefenceObject[userpreference].color1}
               color4={userPrefenceObject[userpreference].color4}
               testinfo={userinfo.tests}
+              maketest={getAvailbleTest}
               type="new"
             />
           </div>

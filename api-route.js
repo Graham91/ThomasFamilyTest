@@ -46,7 +46,20 @@ router.get("/findUser/:id", (req, res) => {
       });
     });
 });
-
+router.get("/singleTest/:id", (req, res) => {
+  let test = req.params.id;
+  db.Test.find({ Name: test })
+    .then((data) => {
+      console.log(data);
+      res.status(200).json(data);
+    })
+    .catch((err) => {
+      res.status(400).json({
+        error: err,
+        message: err.message,
+      });
+    });
+});
 router.post("/Newusers", (req, res) => {
   const userinfo = req.body;
   console.log(userinfo);

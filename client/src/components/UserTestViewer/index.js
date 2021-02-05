@@ -67,7 +67,11 @@ function UserTestsViewer(props) {
   return (
     <div className="savedTestsBox">
       {newarrayobject[props.type].map((person, index) => (
-        <TestUser key={index} name={person.testName} />
+        <TestUser
+          key={index}
+          name={person.testName}
+          maketest={props.maketest}
+        />
       ))}
     </div>
   );
