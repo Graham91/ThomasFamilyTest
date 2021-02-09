@@ -1,0 +1,87 @@
+.lostwholeimage {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: absolute;
+  width: 100%;
+  vertical-align: auto;
+  z-index: 300;
+}
+.placeholder {
+  width: 100%;
+  margin-top: 30px;
+  height: 200px;
+  position: relative;
+}
+.lostdancingmonkeys {
+  height: 200px;
+  left: -200px;
+  position: absolute;
+  /* animation-iteration-count: infinite;s */
+  animation: myanimationmonkey 5s infinite linear;
+}
+.lostdancingaligator {
+  height: 200px;
+  left: -500px;
+  position: absolute;
+  /* animation-iteration-count: infinite;s */
+  animation: myanimationalligator 5s infinite linear;
+}
+.lostdancingaligatorR {
+  height: 200px;
+  right: -500px;
+  position: absolute;
+  /* animation-iteration-count: infinite;s */
+
+  animation: myanimationalligatorR 5s infinite linear 1s;
+}
+.lostdancingmonkeysR {
+  height: 200px;
+  right: -200px;
+  position: absolute;
+  animation: myanimationmonkeyR 5s infinite linear 1s;
+}
+.lostcorrectbox {
+  margin: 0 auto;
+  width: 80%;
+}
+.youlost {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  opacity: 0.6;
+  background-color: black;
+}
+
+@keyframes myanimationmonkey {
+  from {
+    left: -200px;
+  }
+  to {
+    left: calc(100vw + 500px);
+  }
+}
+@keyframes myanimationmonkeyR {
+  from {
+    right: -200px;
+  }
+  to {
+    right: calc(100vw + 500px);
+  }
+}
+@keyframes myanimationalligator {
+  from {
+    left: -500px;
+  }
+  to {
+    left: calc(100vw + 300px);
+  }
+}
+@keyframes myanimationalligatorR {
+  from {
+    right: -500px;
+  }
+  to {
+    right: calc(100vw + 300px);
+  }
+}

@@ -4,6 +4,8 @@ import "./Profilepage.css";
 import Userstests from "../Userstests/";
 import MonkeyPoints from "../MonkeyPoints/";
 import TestTaker from "../testTaker/";
+import YouWon from "../youWon/";
+import YouLost from "../youlost";
 import Usersettings from "../Usersettings/";
 import axios from "axios";
 
@@ -15,12 +17,26 @@ function ProfilePage(props) {
   const [userpreference, setuserprefence] = useState("unicorn");
   const [getinfoOnce, setgetinfoOnce] = useState(true);
   const [selectedTest, setselectedTest] = useState({});
+  const [monkeyimageselector, setmonkeyimageselector] = useState(0);
+  const [showYouwon, setshowYouwon] = useState(false);
   const [userinfo, setuserinfo] = useState({
     monkeyPoints: 0,
     tests: [],
     Name: "",
     imageURL: "",
   });
+
+  const monkeyimages = [
+    "https://i.imgur.com/NQczMZO.gif",
+    "https://i.imgur.com/qxwSE1v.gif",
+    "https://i.imgur.com/tNyV2zC.gif",
+    "https://i.imgur.com/TzDe3js.gif",
+    "https://i.imgur.com/3urHj7j.gif",
+    "https://i.imgur.com/ETmNAhu.gif",
+    "https://i.imgur.com/dRKa2wP.gif",
+    "https://i.imgur.com/jZWO2E8.gif",
+    "https://i.imgur.com/O0KZlBF.gif",
+  ];
   const userPrefenceObject = {
     unicorn: {
       image: "https://i.imgur.com/dPMtRhb.png",
@@ -55,19 +71,41 @@ function ProfilePage(props) {
   });
   const getAvailbleTest = (testSelected) => {
     setselectedTest(testSelected);
+    console.log("click");
     // console.log(selectedTest.questions);
     setshowtestTaker(true);
   };
   const closetesttaker = () => {
     setshowtestTaker(false);
   };
+  const changeWinMonkey = () => {
+    if (monkeyimageselector < monkeyimages.length - 1) {
+      setmonkeyimageselector(monkeyimageselector + 1);
+    } else {
+      setmonkeyimageselector(0);
+    }
+  };
+  const showYouwonfunction = () => {
+    setshowYouwon(true);
+    setTimeout(function () {
+      setshowYouwon(false);
+    }, 8000);
+  };
   return (
     <div>
+      <YouLost show={true} />
+      <YouWon
+        monkeyimage={monkeyimages[monkeyimageselector]}
+        show={showYouwon}
+        monkeypoints={userinfo.monkeyPoints}
+      />
       <TestTaker
         show={showTestTaker}
         back={closetesttaker}
         questions={selectedTest.questions}
         questionsArray={selectedTest.questionsArray}
+        changemonkey={changeWinMonkey}
+        showyouwon={showYouwonfunction}
       />
       <div className="gridlayout">
         <div

@@ -7,7 +7,7 @@ function TestUser(props) {
     let findtestURL = "/api/singleTest/" + props.name;
     axios.get(findtestURL).then((res) => {
       props.maketest(res.data[0]);
-      // console.log(res.data[0]);
+      console.log(res.data[0]);
     });
   };
   return (

@@ -14,6 +14,7 @@ function TestCreator(props) {
       c: "",
       d: "",
       correstAnswer: "",
+      answered: "unanswered",
     },
   });
   const [testNavigationArray, settestNavigationArray] = useState(["question0"]);
@@ -55,6 +56,7 @@ function TestCreator(props) {
         c: "",
         d: "",
         correstAnswer: "",
+        answered: "unanswered",
       },
     });
     settestNavigationArray([...testNavigationArray, questionnumber]);
@@ -99,6 +101,7 @@ function TestCreator(props) {
         c: "",
         d: "",
         correstAnswer: "",
+        answered: "unanswered",
       },
     });
     settestNavigationArray(["question0"]);

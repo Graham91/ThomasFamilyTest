@@ -3,7 +3,108 @@
   height: 100%;
   width: 100%;
   opacity: 0.6;
-  background-color: black;
-  z-index: 160;
+  background: linear-gradient(
+    312deg,
+    #f248e8,
+    #48edf2,
+    #48f252,
+    #f24848,
+    #fe1919
+  );
+  background-size: 1000% 1000%;
+
+  -webkit-animation: Animationmonkey 3s ease infinite;
+  -moz-animation: Animationmonkey 3s ease infinite;
+  animation: Animationmonkey 3s ease infinite;
+}
+.Monkeypointsupdate {
+  font-size: 2em;
+  padding: 10px;
+  border-radius: 40px;
+  background-color: #291dda;
+  text-align: center;
+  margin: 0 auto;
+  color: white;
+  font-weight: bold;
+  width: fit-content;
+  border: solid 10px rgb(255, 174, 0);
+}
+.dancingmonkeys {
+  width: 30%;
+}
+.dancingmonkeysR {
+  width: 30%;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+.wholeimage {
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  width: 100%;
+  vertical-align: auto;
+  z-index: 300;
+}
+.youwonwhole {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 500;
+}
+.hide {
   display: none;
+}
+.correctbox {
+  margin-top: 200px;
+  width: 40%;
+}
+.congratsWords {
+  text-align: center;
+  color: white;
+  font-size: 3em;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+  font-weight: bolder;
+}
+
+.confettibox {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  z-index: 800;
+}
+
+@-webkit-keyframes Animationmonkey {
+  0% {
+    background-position: 0% 43%;
+  }
+  50% {
+    background-position: 100% 58%;
+  }
+  100% {
+    background-position: 0% 43%;
+  }
+}
+@-moz-keyframes Animationmonkey {
+  0% {
+    background-position: 0% 43%;
+  }
+  50% {
+    background-position: 100% 58%;
+  }
+  100% {
+    background-position: 0% 43%;
+  }
+}
+@keyframes Animationmonkey {
+  0% {
+    background-position: 0% 43%;
+  }
+  50% {
+    background-position: 100% 58%;
+  }
+  100% {
+    background-position: 0% 43%;
+  }
 }

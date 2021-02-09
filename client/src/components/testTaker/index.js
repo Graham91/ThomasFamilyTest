@@ -1,3 +1,4 @@
+import { PromiseProvider } from "mongoose";
 import React, { useState, useEffect } from "react";
 import YouWon from "../youWon";
 import "./testTaker.css";
@@ -13,6 +14,7 @@ function TestTaker(props) {
       c: "",
       d: "",
       correstAnswer: "",
+      answered: "unanswered",
     },
   });
   const [questionsArray, setquestionsArray] = useState(["question0"]);
@@ -66,6 +68,15 @@ function TestTaker(props) {
   };
   const submitQuestion = () => {
     if (uncheck === false) {
+      if (
+        findchecked() === question[questionsArray[questionnumber]].correstAnswer
+      ) {
+        console.log("correct answer selected");
+        props.changemonkey();
+        props.showyouwon();
+      } else {
+        console.log("incorrect answer selected");
+      }
       console.log(
         "box checked, selected answer: " +
           findchecked() +
@@ -92,11 +103,7 @@ function TestTaker(props) {
   };
   return (
     <div>
-      <YouWon />
-      <div
-        // className="testtakewhole"
-        className={`testtakewhole ${props.show ? "" : "hide"}`}
-      >
+      <div className={`testtakewhole ${props.show ? "" : "hide"}`}>
         <button onClick={props.back}>Back</button>
         <div className="testTake">
           <button onClick={submitQuestion}>Submit</button>
