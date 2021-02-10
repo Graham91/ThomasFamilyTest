@@ -107,8 +107,13 @@ router.put("/updatetest", (req, res) => {
 router.put("/updatepreference", (req, res) => {
   const userinfo = req.body;
   let choice = userinfo.choice;
+  let person = userinfo.Name;
   console.log(userinfo);
-  // db.User.updateOne({Name: }, )
+  db.User.updateOne({ Name: person }, { profileSettings: choice }).catch(
+    (err) => {
+      console.log(err);
+    }
+  );
 });
 router.put("/updatequestion", (req, res) => {
   const userinfo = req.body;
