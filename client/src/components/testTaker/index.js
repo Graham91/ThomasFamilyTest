@@ -1,7 +1,6 @@
-import { PromiseProvider } from "mongoose";
 import React, { useState, useEffect } from "react";
-import YouWon from "../youWon";
 import "./testTaker.css";
+import axios from "axios";
 
 function TestTaker(props) {
   const [useoncechecked, setuseOncechecked] = useState(true);
@@ -21,6 +20,9 @@ function TestTaker(props) {
   const [questionnumber, setquestionnumber] = useState(0);
   const [uncheck, setuncheck] = useState(true);
   const [selectedAnswer, setselectedAnswer] = useState("");
+  const [availableArray, setavailableArray] = useState(["unanswered"]);
+  const [navigationArray, setnavigationArray] = useState([0]);
+  const [runcorrectonce, setruncorrectonce] = useState(true);
   const [checkedobject, setcheckedobject] = useState({
     a: false,
     b: false,
@@ -28,12 +30,15 @@ function TestTaker(props) {
     d: false,
   });
   useEffect(() => {
+    if (runcorrectonce === true) {
+      getcorrectinformation(props.questionsArray);
+    }
     if (setinfo === true) {
       if (props.questions === undefined) {
       } else {
         // setquestion(props.info);
         setquestionsArray(props.questionsArray);
-        setquestion(props.questions[0]);
+        setquestion(props.questions);
         setsetinfo(false);
       }
     } else {
@@ -66,23 +71,62 @@ function TestTaker(props) {
       return "d";
     }
   };
+  const submitAxios = (info) => {
+    axios.put("/api/updatequestion", { info });
+  };
+  const getcorrectinformation = (array) => {
+    let correctArray = [];
+    let navigationArray = [];
+
+    if (questionsArray.length === availableArray.length) {
+    } else {
+      questionsArray.forEach((element, index) => {
+        let questionstate = question[element].answered;
+        correctArray.push(questionstate);
+        if (questionstate === "correct") {
+        } else {
+          navigationArray.push(index);
+        }
+      });
+      setnavigationArray(navigationArray);
+      setavailableArray(correctArray);
+      setruncorrectonce(false);
+      // closewhencompleted(correctArray);
+    }
+  };
+
   const submitQuestion = () => {
     if (uncheck === false) {
+      let updateobject = {
+        testName: props.name,
+        question: questionsArray[navigationArray[questionnumber]],
+        answered: "",
+        personName: props.personName,
+      };
+      let questionavailbleArray = [...availableArray];
+      console.log(updateobject);
       if (
-        findchecked() === question[questionsArray[questionnumber]].correstAnswer
+        findchecked() ===
+        question[questionsArray[navigationArray[questionnumber]]].correstAnswer
       ) {
+        questionavailbleArray[navigationArray[questionnumber]] = "correct";
         console.log("correct answer selected");
+        updateobject.answered = "correct";
+        submitAxios(updateobject);
         props.changemonkey();
         props.showyouwon();
+        setavailableArray(questionavailbleArray);
+        // closewhencompleted(questionavailbleArray);
       } else {
+        updateobject.answered = "incorrect";
+        questionavailbleArray[navigationArray[questionnumber]] = "incorrect";
+        submitAxios(updateobject);
+        props.showyoulost();
         console.log("incorrect answer selected");
+        setavailableArray(questionavailbleArray);
+        // closewhencompleted(questionavailbleArray);
       }
-      console.log(
-        "box checked, selected answer: " +
-          findchecked() +
-          " The correct answer is: " +
-          question[questionsArray[questionnumber]].correstAnswer
-      );
+
       let newcheckedobject = { ...checkedobject };
       newcheckedobject.a = false;
       newcheckedobject.b = false;
@@ -90,15 +134,44 @@ function TestTaker(props) {
       newcheckedobject.d = false;
       setcheckedobject(newcheckedobject);
       setuncheck(true);
-      console.log(questionnumber);
-      console.log(questionsArray.length - 1);
-      if (questionnumber < questionsArray.length - 1) {
-        setquestionnumber(questionnumber + 1);
-      } else {
-        setquestionnumber(0);
-      }
+      changequestion(questionavailbleArray);
     } else {
       console.log("box unchecked");
+    }
+  };
+  const changequestion = (correctArray) => {
+    if (questionnumber < navigationArray.length - 1) {
+      setquestionnumber(questionnumber + 1);
+      console.log(questionnumber);
+    } else {
+      let correctanswers = 0;
+      let info = { testname: props.name, personName: props.personName };
+      for (let index = 0; index < correctArray.length; index++) {
+        console.log(correctArray[index]);
+        console.log(questionsArray);
+        if (correctArray[index] === "correct") {
+          correctanswers++;
+        }
+      }
+      if (correctanswers === questionsArray.length) {
+        axios.put("/api/updatetest", { info });
+      }
+      setquestionnumber(0);
+      setquestion({
+        question0: {
+          question: "",
+          a: "",
+          b: "",
+          c: "",
+          d: "",
+          correstAnswer: "",
+          answered: "unanswered",
+        },
+      });
+      setquestionsArray(["question0"]);
+      setnavigationArray([0]);
+      props.back();
+      setsetinfo(true);
     }
   };
   return (
@@ -107,7 +180,9 @@ function TestTaker(props) {
         <button onClick={props.back}>Back</button>
         <div className="testTake">
           <button onClick={submitQuestion}>Submit</button>
-          <div>{question[questionsArray[questionnumber]].question}</div>
+          <div>
+            {question[questionsArray[navigationArray[questionnumber]]].question}
+          </div>
           <div>
             <input
               type="checkbox"
@@ -116,7 +191,7 @@ function TestTaker(props) {
               onChange={(e) => changebox(e.target.value)}
             />
             A.
-            {question[questionsArray[questionnumber]].a}
+            {question[questionsArray[navigationArray[questionnumber]]].a}
           </div>
           <div>
             <input
@@ -126,7 +201,7 @@ function TestTaker(props) {
               onChange={(e) => changebox(e.target.value)}
             />
             B.
-            {question[questionsArray[questionnumber]].b}
+            {question[questionsArray[navigationArray[questionnumber]]].b}
           </div>
           <div>
             <input
@@ -136,7 +211,7 @@ function TestTaker(props) {
               onChange={(e) => changebox(e.target.value)}
             />
             C.
-            {question[questionsArray[questionnumber]].c}
+            {question[questionsArray[navigationArray[questionnumber]]].c}
           </div>
           <div>
             <input
@@ -146,7 +221,7 @@ function TestTaker(props) {
               onChange={(e) => changebox(e.target.value)}
             />
             D.
-            {question[questionsArray[questionnumber]].d}
+            {question[questionsArray[navigationArray[questionnumber]]].d}
           </div>
         </div>
       </div>

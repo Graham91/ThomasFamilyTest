@@ -15,7 +15,7 @@ var Testschema = new Schema({
     type: Boolean,
     required: true,
   },
-  questions: [{}],
+  questions: {},
   questionsArray: [],
 });
 

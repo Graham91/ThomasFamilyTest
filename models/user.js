@@ -19,6 +19,10 @@ var UserSchema = new Schema({
     type: Number,
     default: 0,
   },
+  profileSettings: {
+    type: String,
+    default: "unicorn",
+  },
   tests: [{}],
 });
 

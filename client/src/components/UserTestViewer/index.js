@@ -49,7 +49,7 @@ function UserTestsViewer(props) {
         }
         if (props.type === "unfinished") {
           props.testinfo.forEach((element) => {
-            if (element.testState === "unfinished") {
+            if (element.testState === "unfinshed") {
               arrayObject.unfinished.push(element);
             }
           });

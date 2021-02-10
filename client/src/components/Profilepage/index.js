@@ -19,11 +19,14 @@ function ProfilePage(props) {
   const [selectedTest, setselectedTest] = useState({});
   const [monkeyimageselector, setmonkeyimageselector] = useState(0);
   const [showYouwon, setshowYouwon] = useState(false);
+  const [showYoulost, setshowYoulost] = useState(false);
+  const [personName, setpersonName] = useState("");
   const [userinfo, setuserinfo] = useState({
     monkeyPoints: 0,
     tests: [],
     Name: "",
     imageURL: "",
+    profileSettings: "",
   });
 
   const monkeyimages = [
@@ -59,6 +62,7 @@ function ProfilePage(props) {
   useEffect(() => {
     if (getinfoOnce === true) {
       let userstring = "/api/findUser/" + id;
+      setpersonName(id);
       console.log(userstring);
       axios.get(userstring).then((res) => {
         let userobject = res.data[0];
@@ -77,6 +81,7 @@ function ProfilePage(props) {
   };
   const closetesttaker = () => {
     setshowtestTaker(false);
+    setselectedTest({});
   };
   const changeWinMonkey = () => {
     if (monkeyimageselector < monkeyimages.length - 1) {
@@ -91,21 +96,31 @@ function ProfilePage(props) {
       setshowYouwon(false);
     }, 8000);
   };
+  const showYoulostfunction = () => {
+    setshowYoulost(true);
+    setTimeout(function () {
+      setshowYoulost(false);
+    }, 8000);
+  };
+
   return (
     <div>
-      <YouLost show={true} />
+      <YouLost show={showYoulost} />
       <YouWon
         monkeyimage={monkeyimages[monkeyimageselector]}
         show={showYouwon}
         monkeypoints={userinfo.monkeyPoints}
       />
       <TestTaker
+        personName={personName}
         show={showTestTaker}
         back={closetesttaker}
+        name={selectedTest.Name}
         questions={selectedTest.questions}
         questionsArray={selectedTest.questionsArray}
         changemonkey={changeWinMonkey}
         showyouwon={showYouwonfunction}
+        showyoulost={showYoulostfunction}
       />
       <div className="gridlayout">
         <div
@@ -195,6 +210,9 @@ function ProfilePage(props) {
               color2={userPrefenceObject[userpreference].color2}
               color1={userPrefenceObject[userpreference].color1}
               color4={userPrefenceObject[userpreference].color4}
+              changepreference={setuserprefence}
+              lastpreference={userinfo.profileSettings}
+              personName={personName}
             />
           </div>
           <div className={` ${MPActive ? "hide" : ""}`}>

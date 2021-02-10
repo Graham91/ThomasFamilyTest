@@ -82,6 +82,72 @@ router.post("/Newusers", (req, res) => {
         .json({ status: 418, message: "arent you late for something?" });
     });
 });
+router.put("/updatetest", (req, res) => {
+  const userinfo = req.body;
+  let testname = userinfo.info.testname;
+  let personname = userinfo.info.personName;
+  console.log(userinfo);
+  db.User.find({ Name: personname }).then((data) => {
+    let testArray2 = data[0].tests;
+    let testArray = [...testArray2];
+    let objIndex = testArray.findIndex(
+      (element) => element.testName == testname
+    );
+    console.log(objIndex);
+    console.log(testArray);
+    testArray[objIndex].testState = "completed";
+    console.log(testArray);
+    db.User.updateOne({ Name: personname }, { tests: testArray }).then(
+      (response) => {
+        console.log(response);
+      }
+    );
+  });
+});
+router.put("/updatepreference", (req, res) => {
+  const userinfo = req.body;
+  let choice = userinfo.choice;
+  console.log(userinfo);
+  // db.User.updateOne({Name: }, )
+});
+router.put("/updatequestion", (req, res) => {
+  const userinfo = req.body;
+  const userName = userinfo.info.testName;
+  const answered = userinfo.info.answered;
+  const questionNumber = userinfo.info.question;
+  const user = userinfo.info.personName;
+  console.log(userinfo);
+  console.log(userName);
+
+  db.User.find({ Name: user }).then((data) => {
+    let testArray2 = data[0].tests;
+    let testArray = [...testArray2];
+    let objIndex = testArray.findIndex(
+      (element) => element.testName == userName
+    );
+    console.log(objIndex);
+    console.log(testArray);
+    testArray[objIndex].testState = "unfinshed";
+    console.log(testArray);
+    db.User.updateOne({ Name: user }, { tests: testArray }).then((response) => {
+      console.log(response);
+    });
+  });
+
+  db.Test.find({ Name: userName }, function (err, docs) {
+    console.log(docs);
+    let questions = docs[0].questions;
+    questions[questionNumber].answered = answered;
+    db.Test.updateOne(
+      { Name: userName },
+      {
+        questions: questions,
+      }
+    ).then((response) => {
+      res.send(response);
+    });
+  });
+});
 router.put("/updateuser", (req, res) => {
   const userinfo = req.body;
   const userName = userinfo.name;
