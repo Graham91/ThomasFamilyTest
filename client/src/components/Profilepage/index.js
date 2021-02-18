@@ -73,6 +73,11 @@ function ProfilePage(props) {
     } else {
     }
   });
+  const updatebaseMonkeypoints = (monkeynumber) => {
+    let newUserInfo = { ...userinfo };
+    newUserInfo.monkeyPoints = monkeynumber;
+    setuserinfo(newUserInfo);
+  };
   const getAvailbleTest = (testSelected) => {
     setselectedTest(testSelected);
     console.log("click");
@@ -121,6 +126,8 @@ function ProfilePage(props) {
         changemonkey={changeWinMonkey}
         showyouwon={showYouwonfunction}
         showyoulost={showYoulostfunction}
+        monkeypoints={userinfo.monkeyPoints}
+        updateMonkeyPoints={updatebaseMonkeypoints}
       />
       <div className="gridlayout">
         <div
@@ -221,6 +228,7 @@ function ProfilePage(props) {
               color2={userPrefenceObject[userpreference].color2}
               color1={userPrefenceObject[userpreference].color1}
               color4={userPrefenceObject[userpreference].color4}
+              monkeypoints={userinfo.monkeyPoints}
             />
           </div>
         </div>

@@ -10,7 +10,10 @@ function MonkeyPoints(props) {
       <div className={`locationDescriptiongreen ${props.color1}`}>
         Monkey Points
       </div>
-      <div className={`userpageblock ${bordercolor3}`}>Monkey Pointss</div>;
+      <div className={`userpageblock ${bordercolor3}`}>
+        You have {props.monkeypoints} Monkey Points
+      </div>
+      ;
     </div>
   );
 }

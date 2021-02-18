@@ -126,6 +126,10 @@ router.put("/updatequestion", (req, res) => {
 
   db.User.find({ Name: user }).then((data) => {
     let testArray2 = data[0].tests;
+    let monkeyPoints = parseInt(data[0].monkeyPoints);
+    if (answered === "correct") {
+      monkeyPoints++;
+    }
     let testArray = [...testArray2];
     let objIndex = testArray.findIndex(
       (element) => element.testName == userName
@@ -134,7 +138,10 @@ router.put("/updatequestion", (req, res) => {
     console.log(testArray);
     testArray[objIndex].testState = "unfinshed";
     console.log(testArray);
-    db.User.updateOne({ Name: user }, { tests: testArray }).then((response) => {
+    db.User.updateOne(
+      { Name: user },
+      { tests: testArray, monkeyPoints: monkeyPoints }
+    ).then((response) => {
       console.log(response);
     });
   });
@@ -153,6 +160,7 @@ router.put("/updatequestion", (req, res) => {
     });
   });
 });
+
 router.put("/updateuser", (req, res) => {
   const userinfo = req.body;
   const userName = userinfo.name;

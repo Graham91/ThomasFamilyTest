@@ -112,6 +112,9 @@ function TestTaker(props) {
         questionavailbleArray[navigationArray[questionnumber]] = "correct";
         console.log("correct answer selected");
         updateobject.answered = "correct";
+        let monkeypoints = props.monkeypoints;
+        monkeypoints++;
+        props.updateMonkeyPoints(monkeypoints);
         submitAxios(updateobject);
         props.changemonkey();
         props.showyouwon();
@@ -170,8 +173,8 @@ function TestTaker(props) {
       });
       setquestionsArray(["question0"]);
       setnavigationArray([0]);
-      props.back();
       setsetinfo(true);
+      props.back();
     }
   };
   return (
