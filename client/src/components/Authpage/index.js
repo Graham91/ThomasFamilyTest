@@ -10,13 +10,16 @@ import axios from "axios";
 function AuthPage(props) {
   const [userActive, setuserState] = useState(false);
   const [testActive, settestState] = useState(true);
-  const [aviableUsers, setaviableUsers] = useState([]);
+  const [aviableUsers, setaviableUsers] = useState([{ tests: [] }]);
   const [fetchOnce, setfetchOnce] = useState(true);
   const [displayNametest, setdisplayNameTest] = useState(false);
   const [displaytesteditor, setdisplaytesteditor] = useState(false);
   const [selecteduser, setselecteduser] = useState("");
   const [selectedArray, setselectedArray] = useState([]);
   const [userselected, setuserselected] = useState(false);
+  const [testsArrayStructure, settestArrayStructure] = useState({ "": [] });
+  const [testsArray, settestsArray] = useState([]);
+  const [userforedittest, setuserforedittest] = useState("");
   const [selectedquestions, setselectedquestions] = useState({});
   const [edituserstructure, setedituserstructure] = useState({});
   const [editNavstructure, seteditNavstructure] = useState({});
@@ -27,16 +30,26 @@ function AuthPage(props) {
       axios.get("api/users").then((res) => {
         console.log(res);
         setaviableUsers(res.data);
+        let firstuser = res.data[0].Name;
         let structure = {};
         res.data.forEach((element) => {
           structure[element.Name] = {};
         });
         let navStructure = {};
+        let testArraystructure = {};
+        res.data.forEach((element) => {
+          testArraystructure[element.Name] = element.tests;
+        });
         res.data.forEach((element) => {
           navStructure[element.Name] = [];
         });
+        console.log(testArraystructure);
         setedituserstructure(structure);
         seteditNavstructure(navStructure);
+        setuserforedittest(firstuser);
+        settestArrayStructure(testArraystructure);
+        settestsArray(res.data[0].tests);
+        console.log("this is the test array: " + res.data[0].tests);
       });
       setfetchOnce(false);
     } else {
@@ -55,6 +68,9 @@ function AuthPage(props) {
   const openTestModule = () => {
     setdisplayNameTest(false);
     setdisplaytesteditor(true);
+  };
+  const switchuseredit = (name) => {
+    settestsArray(testsArrayStructure[name]);
   };
   const opensavedtested = (questions, array, testname, user) => {
     console.log(questions);
@@ -133,6 +149,9 @@ function AuthPage(props) {
             testchanger={testChanger}
             openTestModule={openTestModule}
             opensavedtested={opensavedtested}
+            testArray={testsArray}
+            userforedittest={userforedittest}
+            switchuseredit={switchuseredit}
           />
         </div>
       </div>
