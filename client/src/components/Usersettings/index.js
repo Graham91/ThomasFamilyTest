@@ -5,6 +5,7 @@ function Usersettings(props) {
   const [checkedobject, setcheckedobject] = useState({
     unicorn: true,
     volcano: false,
+    shark: false,
   });
   const [runonce, setrunonce] = useState(true);
   useEffect(() => {
@@ -22,6 +23,7 @@ function Usersettings(props) {
     let newcheckedobject = { ...checkedobject };
     newcheckedobject.unicorn = false;
     newcheckedobject.volcano = false;
+    newcheckedobject.shark = false;
     newcheckedobject[letter] = true;
     console.log(newcheckedobject);
     setcheckedobject(newcheckedobject);
@@ -57,6 +59,15 @@ function Usersettings(props) {
             onChange={(e) => changebox(e.target.value)}
           />
           Volcano
+        </div>
+        <div>
+          <input
+            type="checkbox"
+            checked={checkedobject.shark}
+            value="shark"
+            onChange={(e) => changebox(e.target.value)}
+          />
+          Shark
         </div>
       </div>
       ;

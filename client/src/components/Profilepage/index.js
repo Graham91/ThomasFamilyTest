@@ -42,7 +42,7 @@ function ProfilePage(props) {
   ];
   const userPrefenceObject = {
     unicorn: {
-      image: "https://i.imgur.com/dPMtRhb.png",
+      image: "https://i.imgur.com/z26lJju.png",
       color1: "purple",
       color2: "blue",
       color3: "pink",
@@ -50,12 +50,20 @@ function ProfilePage(props) {
       background: "mainContainerpurple",
     },
     volcano: {
-      image: "https://i.imgur.com/7nYpeGs.png",
+      image: "https://i.imgur.com/htC4Icx.png",
       color1: "orange",
       color2: "red",
       color3: "yellow",
       color4: "black",
       background: "mainContainerred",
+    },
+    shark: {
+      image: "https://i.imgur.com/Cw4jMTX.png",
+      color1: "purple",
+      color2: "blue",
+      color3: "pink",
+      color4: "white",
+      background: "mainContainerpurple",
     },
   };
   const { id } = useParams();
