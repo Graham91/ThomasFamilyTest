@@ -15,7 +15,27 @@
   text-align: center;
 }
 .testStatusedit {
-  border-right: solid 1px black;
+  /* border-right: solid 1px black; */
   width: 40%;
   text-align: center;
+}
+.adduserInstructionsedit {
+  width: 100%;
+  background-color: blue;
+  text-align: center;
+  color: white;
+  margin: 0;
+  -webkit-box-shadow: inset 0px 10px 13px 0px rgba(0, 0, 0, 0.65);
+  box-shadow: inset 0px 10px 13px 0px rgba(0, 0, 0, 0.65);
+}
+.deletetestbutton {
+  border: outset 4px red;
+  margin: -5px;
+  width: 20%;
+  float: right;
+  background-color: red;
+  color: white;
+  text-align: center;
+  font-size: 1.3em;
+  padding: 0;
 }

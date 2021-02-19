@@ -262,6 +262,38 @@ router.post("/submittest", (req, res) => {
     }
   });
 });
+router.put("/deletetest", (req, res) => {
+  const userinfo = req.body;
+  console.log(userinfo);
+  // userinfo.name;
+  db.User.find({ Name: userinfo.name }).then((data) => {
+    let testarray = data[0].tests;
+    let newtestarray = [];
+    for (let index = 0; index < testarray.length; index++) {
+      const element = testarray[index];
+      if (element.testName === userinfo.testName) {
+      } else {
+        newtestarray.push(element);
+      }
+    }
+
+    db.User.updateOne({ Name: userinfo.name }, { tests: newtestarray })
+      .then(() => {
+        console.log("User Test Updated");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+  db.Test.deleteOne({ Name: userinfo.testName }, function (err) {
+    if (!err) {
+      console.log("success");
+      res.send("success");
+    } else {
+      console.log(err);
+    }
+  });
+});
 router.get("/savedtests", (req, res) => {
   db.Test.find({ Submited: false })
     .then((data) => {
