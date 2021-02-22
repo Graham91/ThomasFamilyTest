@@ -6,7 +6,37 @@
   right: 0;
   top: 70px;
 } */
-
+.fontUnicorn {
+  margin-top: 200px;
+  font-size: 4em;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  -webkit-text-stroke-width: 4px;
+  -webkit-text-stroke-color: PINk;
+  text-shadow: 5px 5px #8c00ff;
+  padding: 10px;
+}
+.fontVolcano {
+  font-size: 4em;
+  text-align: center;
+  color: rgb(221, 103, 24);
+  font-weight: bold;
+  -webkit-text-stroke-width: 4px;
+  -webkit-text-stroke-color: rgb(204, 16, 16);
+  text-shadow: 5px 5px #000000;
+  padding: 10px;
+}
+.fontShark {
+  font-size: 4em;
+  text-align: center;
+  color: rgb(31, 134, 138);
+  font-weight: bold;
+  -webkit-text-stroke-width: 4px;
+  -webkit-text-stroke-color: rgb(59, 67, 180);
+  text-shadow: 5px 5px #0a116b;
+  padding: 10px;
+}
 .yellowborder {
   border: solid 15px rgb(255, 217, 0);
 }

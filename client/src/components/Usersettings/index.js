@@ -42,7 +42,7 @@ function Usersettings(props) {
         User Settings
       </div>
       <div className={`userpageblock ${bordercolor3}`}>
-        <div>
+        <div className="fontUnicorn">
           <input
             type="checkbox"
             checked={checkedobject.unicorn}
@@ -51,7 +51,7 @@ function Usersettings(props) {
           />
           Unicorn
         </div>
-        <div>
+        <div className="fontVolcano">
           <input
             type="checkbox"
             checked={checkedobject.volcano}
@@ -60,7 +60,7 @@ function Usersettings(props) {
           />
           Volcano
         </div>
-        <div>
+        <div className="fontShark">
           <input
             type="checkbox"
             checked={checkedobject.shark}
