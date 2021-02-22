@@ -1,18 +1,20 @@
 .userpageblock {
-  width: calc(100% - 430px);
-  height: calc(100% - 100px);
-  position: absolute;
-  right: 0;
-  top: 70px;
-  background-color: #89cae0;
+  width: calc(100% - 30px);
+  height: 669px;
+  position: relative;
+  /* float: left; */
+  /* right: 40; */
+  top: 0px;
+  /* background-color: #89cae0; */
 }
 
 .locationDescriptiongreen {
-  width: calc(100% - 400px);
-  height: 70px;
-  position: absolute;
-  right: 0;
-  top: 0;
+  width: 100%;
+  height: 80px;
+  position: relative;
+  /* right: 40; */
+  /* float: left; */
+  top: -5;
   text-align: center;
   font-size: 3em;
   color: white;
@@ -51,12 +53,27 @@
 
 .yellowborder {
   border: solid 15px rgb(255, 217, 0);
+  background-color: rgb(151, 46, 39);
+  box-shadow: 69px 24px 286px 43px rgba(255, 217, 0, 0.808) inset;
+  -webkit-box-shadow: 69px 24px 286px 43px rgba(255, 217, 0, 0.808) inset;
+  -moz-box-shadow: 69px 24px 286px 43px rgba(255, 217, 0, 0.808) inset;
+}
+.lightblueborder {
+  border: solid 15px rgb(157, 212, 219);
+  background-color: rgb(12, 5, 109);
+  box-shadow: 69px 24px 286px 43px rgba(161, 244, 255, 0.808) inset;
+  -webkit-box-shadow: 69px 24px 286px 43px rgba(161, 244, 255, 0.808) inset;
+  -moz-box-shadow: 69px 24px 286px 43px rgba(161, 244, 255, 0.808) inset;
 }
 .pink {
   background-color: #de97d3;
 }
 .pinkborder {
   border: solid 15px #de97d3;
+  background-color: #89cae0;
+  box-shadow: 69px 24px 400px 86px rgb(245, 140, 210) inset;
+  -webkit-box-shadow: 69px 24px 400px 86px rgb(245, 140, 210) inset;
+  -moz-box-shadow: 69px 24px 400px 86px rgb(245, 140, 210) inset;
 }
 .red {
   background-color: rgb(151, 46, 39);

@@ -1,5 +1,5 @@
 .createUserbox {
-  width: calc(100% - 430px);
+  width: calc(100% - 480px);
   height: calc(100% - 100px);
   border: solid 15px coral;
   position: absolute;

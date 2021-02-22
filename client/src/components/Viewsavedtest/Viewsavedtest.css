@@ -25,5 +25,5 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  border: solid 1px black;
+  /* border: solid 1px black; */
 }

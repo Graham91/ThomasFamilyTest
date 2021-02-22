@@ -11,9 +11,13 @@ function MonkeyPoints(props) {
         Monkey Points
       </div>
       <div className={`userpageblock ${bordercolor3}`}>
-        You have {props.monkeypoints} Monkey Points
+        <div className="goldenCircle"></div>
+        <img src="https://i.imgur.com/BXZkajM.gif" className="sparklegif" />
+        <img src="https://i.imgur.com/Rgw54lV.png" className="monkeytrophey" />
+        <div className="monkeypointstotal">
+          Total Monkey Points: {props.monkeypoints}
+        </div>
       </div>
-      ;
     </div>
   );
 }

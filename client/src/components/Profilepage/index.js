@@ -47,6 +47,8 @@ function ProfilePage(props) {
       color2: "blue",
       color3: "pink",
       color4: "white",
+      color5: "cloudwhite",
+      boxshadow: "boxshadowwhite",
       background: "mainContainerpurple",
     },
     volcano: {
@@ -55,15 +57,19 @@ function ProfilePage(props) {
       color2: "red",
       color3: "yellow",
       color4: "black",
+      color5: "darkestgrey",
+      boxshadow: "boxshadow",
       background: "mainContainerred",
     },
     shark: {
       image: "https://i.imgur.com/Cw4jMTX.png",
-      color1: "purple",
-      color2: "blue",
-      color3: "pink",
+      color1: "middleBlue",
+      color2: "darkblue",
+      color3: "lightblue",
       color4: "white",
-      background: "mainContainerpurple",
+      color5: "darkestblue",
+      boxshadow: "boxshadow",
+      background: "mainContainerblue",
     },
   };
   const { id } = useParams();
@@ -137,7 +143,10 @@ function ProfilePage(props) {
         monkeypoints={userinfo.monkeyPoints}
         updateMonkeyPoints={updatebaseMonkeypoints}
       />
-      <div className="gridlayout">
+      <div
+        className={`gridlayout2 ${userPrefenceObject[userpreference].color5}`}
+      >
+        <div className={userPrefenceObject[userpreference].boxshadow}></div>
         <div
           className={`userManagementHome ${userPrefenceObject[userpreference].color4}`}
         >
@@ -204,10 +213,9 @@ function ProfilePage(props) {
                 </div>
               </div>
             </div>
-            <div className="strechWhite"></div>
           </div>
         </div>
-        <div className="userspace">
+        <div className="userspace2">
           <div className={` ${userActive ? "hide" : ""}`}>
             <Userstests
               color3={userPrefenceObject[userpreference].color3}

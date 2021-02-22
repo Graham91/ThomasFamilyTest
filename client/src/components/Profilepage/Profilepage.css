@@ -1,11 +1,11 @@
 .userManagementHome {
-  width: 400px;
   /* position: absolute; */
+  position: relative;
+  /* float: left; */
+  width: 400px;
   top: 0;
-  height: 100vh;
-  /* height: 100vh; */
-  /* background-color: rgb(46, 136, 76); */
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  height: 780px;
+
   z-index: 1;
 }
 body {
@@ -28,20 +28,57 @@ body {
   border-radius: 20px;
 }
 
-.gridlayout {
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-columns: 400px auto;
-  grid-template-rows: 100%;
+.gridlayout2 {
+  height: 780px;
+  width: calc(100% -160px);
+  max-width: 1400px;
+  min-width: 1150px;
+  margin: auto;
+  border-width: 40px;
+  border-style: solid;
+  border-radius: 40px;
+  display: flex;
+  /* border-color: white; */
+  position: relative;
+
+  z-index: 100;
+  box-shadow: 10px 4px 45px 13px rgba(0, 0, 0, 0.73);
+  -webkit-box-shadow: 10px 4px 45px 13px rgba(0, 0, 0, 0.73);
+  -moz-box-shadow: 10px 4px 45px 13px rgba(0, 0, 0, 0.73);
+}
+.boxshadow {
+  position: absolute;
+  /* box-shadow: 10px -1px 68px 31px rgba(0, 0, 0, 0.73) inset;
+  -webkit-box-shadow: 10px -1px 68px 31px rgba(0, 0, 0, 0.73) inset;
+  -moz-box-shadow: 10px -1px 68px 31px rgba(0, 0, 0, 0.73) inset; */
+  border: solid 3px black;
+  pointer-events: none;
+  width: calc(100% - 6px);
+  height: calc(100% - 6px);
+  z-index: 200;
+}
+.boxshadowwhite {
+  position: absolute;
+  /* box-shadow: 10px -1px 68px 31px rgba(250, 160, 255, 0.73) inset;
+  -webkit-box-shadow: 10px -1px 68px 31px rgba(250, 160, 255, 0.73) inset;
+  -moz-box-shadow: 10px -1px 68px 31px rgba(250, 160, 255, 0.73) inset; */
+  pointer-events: none;
+  border: solid 3px white;
+  width: calc(100% - 6px);
+  height: calc(100% - 6px);
+  z-index: 200;
 }
 .strechWhite {
   width: 400px;
   flex-grow: 1;
 }
-.userspace {
-  height: 100%;
+.sectionblock {
   width: 100%;
+  height: 100%;
+}
+.userspace2 {
+  height: 780px;
+  width: calc(100% - 400px);
   /* border: solid 10px black; */
 }
 .picture {
@@ -73,9 +110,9 @@ body {
 .mainContainer {
   vertical-align: auto;
   position: absolute;
-  height: 778px;
+  /* height: 781px; */
   width: 400px;
-  top: calc(50vh - 389px);
+  /* top: calc(50vh - 389px); */
 }
 
 /* .profileimg {
@@ -119,7 +156,25 @@ body {
 .white {
   background-color: white;
 }
-
+.lightblue {
+  background-color: rgb(157, 212, 219);
+}
+.middleBlue {
+  border-color: rgb(69, 56, 245);
+  background-color: rgb(69, 56, 245);
+}
+.darkblue {
+  background-color: rgb(12, 5, 109);
+}
+.darkestblue {
+  border-color: rgb(11, 8, 58);
+}
+.darkestgrey {
+  border-color: rgb(24, 24, 24);
+}
+.cloudwhite {
+  border-color: rgb(250, 160, 255);
+}
 .hide {
   display: none;
 }
@@ -246,6 +301,63 @@ body {
   }
 }
 @keyframes AnimationName2 {
+  0% {
+    background-position: 51% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 51% 0%;
+  }
+}
+
+.mainContainerblue {
+  background: linear-gradient(
+    180deg,
+    rgb(157, 212, 219),
+    rgb(69, 56, 245),
+    rgb(12, 5, 109),
+    rgb(157, 212, 219),
+    rgb(69, 56, 245),
+    rgb(12, 5, 109),
+    rgb(157, 212, 219),
+    rgb(69, 56, 245),
+    rgb(12, 5, 109),
+    rgb(157, 212, 219),
+    rgb(69, 56, 245),
+    rgb(12, 5, 109)
+  );
+  background-size: 1000% 1000%;
+
+  -webkit-animation: AnimationName4 11s linear infinite;
+  -moz-animation: AnimationName4 11s linear infinite;
+  animation: AnimationName4 11s linear infinite;
+}
+
+@-webkit-keyframes AnimationName4 {
+  0% {
+    background-position: 51% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 51% 0%;
+  }
+}
+@-moz-keyframes AnimationName4 {
+  0% {
+    background-position: 51% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 51% 0%;
+  }
+}
+@keyframes AnimationName4 {
   0% {
     background-position: 51% 0%;
   }

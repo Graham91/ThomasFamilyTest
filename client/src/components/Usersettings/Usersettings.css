@@ -6,17 +6,7 @@
   right: 0;
   top: 70px;
 } */
-.locationDescription {
-  width: calc(100% - 400px);
-  height: 70px;
-  position: absolute;
-  right: 0;
-  top: 0;
-  text-align: center;
-  font-size: 3em;
-  color: white;
-  font-weight: bold;
-}
+
 .yellowborder {
   border: solid 15px rgb(255, 217, 0);
 }
