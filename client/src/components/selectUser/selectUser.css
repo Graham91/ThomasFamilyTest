@@ -1,12 +1,35 @@
 .linkBox {
   width: 80%;
-  margin: 20px auto;
-  border-radius: 20px;
-  border: solid black 4px;
-  background-color: rgb(163, 163, 163);
+  margin: 50px auto;
+  position: relative;
+  background-image: url("https://i.imgur.com/DtLDnBE.jpg");
+  background-size: 400px;
+
+  border-style: solid;
+  /* border-image-source: url("https://i.imgur.com/BOWuyKg.png") 25% round;
+   */
+  border-width: 20px;
+  border-style: solid;
+  border-image: url("https://i.imgur.com/BOWuyKg.png") 45 stretch;
   padding: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 7px 6px 28px 11px rgba(0, 0, 0, 0.62) inset;
+  -webkit-box-shadow: 7px 6px 28px 11px rgba(0, 0, 0, 0.62) inset;
+  -moz-box-shadow: 7px 6px 28px 11px rgba(0, 0, 0, 0.62) inset;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
+}
+.leftsidereaser {
+  width: 33px;
+  position: absolute;
+  left: -27px;
+  top: calc(50% - 45px);
+}
+.rigthsidereaser {
+  width: 33px;
+  position: absolute;
+  right: -27px;
+  top: calc(50% - 45px);
+  transform: rotate(180deg);
 }

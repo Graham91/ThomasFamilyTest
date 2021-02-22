@@ -30,7 +30,7 @@ body {
 
 .gridlayout2 {
   height: 780px;
-  width: calc(100% -160px);
+  width: calc(100% - 160px);
   max-width: 1400px;
   min-width: 1150px;
   margin: auto;
@@ -48,9 +48,9 @@ body {
 }
 .boxshadow {
   position: absolute;
-  /* box-shadow: 10px -1px 68px 31px rgba(0, 0, 0, 0.73) inset;
+  box-shadow: 10px -1px 68px 31px rgba(0, 0, 0, 0.73) inset;
   -webkit-box-shadow: 10px -1px 68px 31px rgba(0, 0, 0, 0.73) inset;
-  -moz-box-shadow: 10px -1px 68px 31px rgba(0, 0, 0, 0.73) inset; */
+  -moz-box-shadow: 10px -1px 68px 31px rgba(0, 0, 0, 0.73) inset;
   border: solid 3px black;
   pointer-events: none;
   width: calc(100% - 6px);

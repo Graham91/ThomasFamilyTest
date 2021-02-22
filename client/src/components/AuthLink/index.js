@@ -5,14 +5,21 @@ import "./AuthLink.css";
 function AuthLink(props) {
   return (
     <div className="banner">
-      <Link
-        to={{
-          pathname: "/authProfile",
-        }}
-        style={{ textDecoration: "none", color: "white" }}
-      >
-        Tiffany's Tests
-      </Link>
+      <span>
+        <Link
+          to={{
+            pathname: "/authProfile",
+          }}
+          style={{
+            textDecoration: "none",
+            color: "inherit",
+            color: "blue",
+          }}
+        >
+          T
+        </Link>
+      </span>
+      <span>homas Family Tests</span>
     </div>
   );
 }

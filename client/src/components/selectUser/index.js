@@ -16,6 +16,8 @@ const SelectUser = (props) => {
           />
         </Link>
       ))}
+      <img src="https://i.imgur.com/uAqUg2n.png" className="leftsidereaser" />
+      <img src="https://i.imgur.com/uAqUg2n.png" className="rigthsidereaser" />
     </div>
   );
 };

@@ -1,10 +1,14 @@
 .profImage {
   width: 260px;
-  border: solid 10px coral;
+  border: solid 10px white;
   border-radius: 20px;
   position: absolute;
+  margin-top: -10px 30px;
   top: 10px;
   left: 10px;
+  box-shadow: 4px 5px 14px 9px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 4px 5px 14px 9px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 4px 5px 14px 9px rgba(0, 0, 0, 0.4);
 }
 .profileimgmain {
   height: 280px;
@@ -16,68 +20,12 @@
   position: absolute;
   top: 200px;
   width: calc(100% - 20px);
-  height: 2em;
-  background-color: rgb(46, 136, 76);
-  font-size: 2em;
+  height: 60px;
+  background-color: rgb(255, 255, 255, 0.5);
+  font-size: 2.4em;
   width: 260px;
   color: white;
   font-weight: bold;
   text-align: center;
   left: 20px;
-}
-.profileimgmain {
-  background: linear-gradient(
-    180deg,
-    #681ae0,
-    #a2cee9,
-    #de97d3,
-    #7847e7,
-    #89cae0,
-    #e194eb,
-    #8658ed,
-    #8cbce7,
-    #e78ce2,
-    #8658ed,
-    #8cbce7,
-    #e78ce2
-  );
-  background-size: 1000% 1000%;
-
-  -webkit-animation: AnimationName 11s linear infinite;
-  -moz-animation: AnimationName 11s linear infinite;
-  animation: AnimationName 11s linear infinite;
-}
-
-@-webkit-keyframes AnimationName {
-  0% {
-    background-position: 51% 0%;
-  }
-  50% {
-    background-position: 50% 100%;
-  }
-  100% {
-    background-position: 51% 0%;
-  }
-}
-@-moz-keyframes AnimationName {
-  0% {
-    background-position: 51% 0%;
-  }
-  50% {
-    background-position: 50% 100%;
-  }
-  100% {
-    background-position: 51% 0%;
-  }
-}
-@keyframes AnimationName {
-  0% {
-    background-position: 51% 0%;
-  }
-  50% {
-    background-position: 50% 100%;
-  }
-  100% {
-    background-position: 51% 0%;
-  }
 }
