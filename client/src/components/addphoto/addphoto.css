@@ -1,0 +1,90 @@
+.picturemovertoggle {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  left: 350px;
+  bottom: 100px;
+}
+.addphotoModule {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
+.modulebackground {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 0.5;
+}
+.mainaddphotomodule {
+  width: 60%;
+  height: 60%;
+  top: calc(50% - 30%);
+  left: calc(50% - 30%);
+  background-color: white;
+  position: fixed;
+  z-index: 100;
+}
+
+.upbuttonmover {
+  border: solid 5px white;
+  left: 30px;
+  top: 0px;
+  background-color: grey;
+  position: absolute;
+  height: 35px;
+  width: 30px;
+  border-radius: 3px;
+}
+
+.downbuttonmover {
+  border: solid 5px white;
+  left: 30px;
+  top: 55px;
+  background-color: grey;
+  position: absolute;
+  height: 35px;
+  width: 30px;
+  border-radius: 3px;
+}
+
+.rightbuttonmover {
+  border: solid 5px white;
+  left: 55px;
+  top: 30px;
+  background-color: grey;
+  position: absolute;
+  height: 30px;
+  width: 35px;
+  border-radius: 3px;
+}
+
+.centerbutton {
+  left: 30px;
+  top: 35px;
+  background-color: grey;
+  position: absolute;
+  height: 30px;
+  width: 40px;
+}
+
+.centerbutton2 {
+  left: 35px;
+  top: 30px;
+  background-color: grey;
+  position: absolute;
+  height: 40px;
+  width: 30px;
+}
+
+.leftbuttonmover {
+  border: solid 5px white;
+  left: 0;
+  top: 30px;
+  background-color: grey;
+  position: absolute;
+  height: 30px;
+  width: 35px;
+  border-radius: 3px;
+}

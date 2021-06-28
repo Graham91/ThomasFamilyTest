@@ -16,7 +16,17 @@ mongoose
   .connect(dataBase, { useNewUrlParser: true }, { useUnifiedTopology: true })
   .then(console.log("mongoose running"))
   .catch((err) => console.log(err));
+router.post("/saveimage", (req, res) => {
+  console.log(req.body);
 
+  // axios
+  //   .post("https://api.imgur.com/3/image/", data, {
+  //     headers: { Authorization: "Client-ID 41f97ec30b09d4c" },
+  //   })
+  //   .then((res) => {
+  //     console.log(res);
+  //   });
+});
 router.get("/", (req, res) => {
   res.end("we should never come here.");
 });

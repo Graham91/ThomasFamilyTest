@@ -17,11 +17,11 @@
   display: flex;
   padding: 5px;
 }
-.createUserbox {
+/* .createUserbox {
   width: calc(100vw - 430px);
   height: calc(100vh - 100px);
   border: solid 15px coral;
   position: absolute;
   right: 0;
   top: 70px;
-}
+} */

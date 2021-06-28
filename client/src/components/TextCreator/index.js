@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./testcreator.css";
 import axios from "axios";
 import QuestionEditor from "../questionEditor";
+import AddPhoto from "../addphoto";
 
 let questioncounter = 1;
 
@@ -164,6 +165,7 @@ function TestCreator(props) {
   return (
     <div className={`testCreator ${props.classFinder ? "" : "hide"}`}>
       <button onClick={back}>back</button>
+      {/* <AddPhoto /> */}
       <div className="testQuestionNavigation">
         {testNavigationArray.map((person, index) => (
           <div

@@ -18,18 +18,7 @@ function TestCreator(props) {
   });
   const [testNavigationArray, settestNavigationArray] = useState(["question0"]);
   const [selectquestion, setselectquestion] = useState("question0");
-  const [useonce, setuseOnce] = useState(true);
 
-  useEffect(() => {
-    if (props.userselected === true) {
-      if (setonce === true) {
-        settestquestions(props.selectedquestions);
-        settestNavigationArray(props.selectedArray);
-        setuseOnce(false);
-      }
-    } else {
-    }
-  });
   const addNewQuestion = () => {
     console.log("worked");
     let questionnumber = "question" + questioncounter;
